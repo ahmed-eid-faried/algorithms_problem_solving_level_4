@@ -32,6 +32,6 @@ int main()
     //PrintDateByNumOfDaysInYearEx();
     //DateAfterAddingDaysEx();
     //ComparingTwoDateEx();
-    Date1IsEqualToDate2Ex();
+    IsDate1EqualToDate2Ex();
 }
  

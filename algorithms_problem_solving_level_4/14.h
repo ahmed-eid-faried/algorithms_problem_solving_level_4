@@ -213,7 +213,7 @@ namespace soln14 {
 			(Date1.Month != Date2.Month) ? (Date1.Month > Date2.Month) :
 			(Date1.Day != Date2.Day) ? (Date1.Day > Date2.Day) : false;
 	}
-	bool Date1IsEqualToDate2(sDate Date1, sDate Date2) {
+	bool IsDate1EqualToDate2(sDate Date1, sDate Date2) {
 		return (Date1.Year == Date2.Year) && (Date1.Month == Date2.Month) && (Date1.Day == Date2.Day);
 	}
 	string ResultOfComparing(enComparing Comparing, string Title) {
@@ -234,7 +234,7 @@ namespace soln14 {
 
 
 
-void Date1IsEqualToDate2Ex() {
+void IsDate1EqualToDate2Ex() {
 	cout << "Date1: " << endl;
 	soln14::sDate Date1 = soln14::ReadDate();
 	cout << "Date2: " << endl;
@@ -243,7 +243,7 @@ void Date1IsEqualToDate2Ex() {
 	bool result = soln14::Date1IsMoreThanDate2(Date1, Date2);
 	result ? cout << "Date1 is more than Date2" << endl : cout << "Date1 is less than Date2" << endl;
 
-	bool result2 = soln14::Date1IsEqualToDate2(Date1, Date2);
+	bool result2 = soln14::IsDate1EqualToDate2(Date1, Date2);
 	result2 ? cout << "Date1 is equal to Date2" << endl : cout << "Date1 is not equal to Date2" << endl;
 
 
