@@ -4,6 +4,7 @@
 #include "2.h"
 #include "3.h"
 #include "4_.h"
+#include "5.h"
 
 int main()
 {
@@ -12,6 +13,7 @@ int main()
     //ConvertNumbersToStringEx2();
     //CheckLeapYear();
     //CheckLeapYear2();
-    NumbersOfDaysInYearEx();
+    //NumbersOfDaysInYearEx();
+    NumbersOfDaysInMonthEx();
 }
  
