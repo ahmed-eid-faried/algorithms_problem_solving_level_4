@@ -29,8 +29,18 @@ namespace soln6 {
 	short NumOfDaysInMonth(short Month, short Year)
 	{
 		if (Month < 1 || Month>12)return 0;
+		int Days[12] = { 31, 28,  31,  30,  31,  30, 31,  31,  30,  31,  30,  31 };
+
+		return	(Month == 2) ? (isLeapYear(Year) ? 29 : 28) : Days[Month - 1];
+	}
+	//other method
+	short NumOfDaysInMonth2(short Month, short Year)
+	{
+		if (Month < 1 || Month>12)return 0;
 		return	(Month == 2) ? (isLeapYear(Year) ? 29 : 28) : ((Month == 4 || Month == 6 || Month == 9 || Month == 11) ? 30 : 31);
 	}
+
+
 	short NumOfHoursInMonth(short Month, short Year) {
 		return  NumOfDaysInMonth(Month, Year) * 24;
 	}
