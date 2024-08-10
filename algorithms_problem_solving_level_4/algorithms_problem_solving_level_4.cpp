@@ -2,10 +2,12 @@
 //
 
 #include <iostream>
+#include "1_text_of_numbers.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    ConvertNumbersToStringEx();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

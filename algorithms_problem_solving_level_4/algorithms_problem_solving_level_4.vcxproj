@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="algorithms_problem_solving_level_4.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="1_text_of_numbers.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
