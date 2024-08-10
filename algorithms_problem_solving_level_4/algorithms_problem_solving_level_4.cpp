@@ -13,6 +13,7 @@
 #include "11.h"
 #include "12.h"
 #include "13.h"
+#include "14.h"
 using namespace soln11;
 
 int main()
@@ -30,6 +31,7 @@ int main()
     //NumOfDaysFromBeginingOfYearEx();
     //PrintDateByNumOfDaysInYearEx();
     //DateAfterAddingDaysEx();
-    ComparingTwoDateEx();
+    //ComparingTwoDateEx();
+    Date1IsEqualToDate2Ex();
 }
  
