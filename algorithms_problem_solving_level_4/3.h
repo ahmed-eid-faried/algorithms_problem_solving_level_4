@@ -18,7 +18,7 @@ namespace soln3 {
 
 	}
 	bool IsleapYear(short year) {
- 		return (year % 400 == 0) ? true : (year % 4 == 0 && year % 100 != 0);
+		return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
 	}
 }
 
