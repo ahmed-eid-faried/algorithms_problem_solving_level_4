@@ -23,5 +23,8 @@
     <ClInclude Include="1_text_of_numbers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="1_soln1_2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

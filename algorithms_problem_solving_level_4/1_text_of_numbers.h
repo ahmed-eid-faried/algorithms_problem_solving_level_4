@@ -4,7 +4,13 @@
 
 using namespace std;
 namespace soln1 {
-
+	int ReadNumber()
+	{
+		int Number;
+		cout << "\nEnter a Number? ";
+		cin >> Number;
+		return Number;
+	}
 	enum enOnesPlace {
 		Zero = 0,
 		One = 1,
@@ -194,12 +200,9 @@ namespace soln1 {
 			}
 			string Separator2 = "";
 			if (DigitsList[1] != 0 && DigitsList[2] != 0)Separator2 = "-";
-
 			return OnesPlace((enOnesPlace)DigitsList[0]) +
 				Separator1 +
-				TensPlace((enTensPlace)(DigitsList[1] * 10)) +
-				Separator2 +
-				OnesPlace((enOnesPlace)DigitsList[2]);
+				ConvertThreeDigitChunkToString((DigitsList[1] * 10) + (DigitsList[2]));
 		}
 	}
 	string Places(enPlaces Place) {
@@ -219,7 +222,7 @@ namespace soln1 {
 			return "";
 		}
 	}
-	string ConvertNumbersToString(int Num) {
+	string ConvertNumbersToString(int  Num) {
 		vector<int> ThreeDigitChunks = numberToThreeDigitChunks(Num);
 		///////////////////////////////////////////////////////////////
 		//int LastThreeDigitChunk = ThreeDigitChunks[ThreeDigitChunks.size() - 1];
@@ -244,7 +247,7 @@ namespace soln1 {
 
 
 }
-void ConvertNumbersToStringEx() {
+void ExampleConvertNumbersToString() {
 	cout << soln1::ConvertNumbersToString(0) << endl;
 	cout << soln1::ConvertNumbersToString(1) << endl;
 	cout << soln1::ConvertNumbersToString(6) << endl;
@@ -254,7 +257,6 @@ void ConvertNumbersToStringEx() {
 	cout << soln1::ConvertNumbersToString(20) << endl;
 	cout << soln1::ConvertNumbersToString(21) << endl;
 	cout << soln1::ConvertNumbersToString(55) << endl;
-	cout << soln1::ConvertNumbersToString(60) << endl;
 	cout << soln1::ConvertNumbersToString(80) << endl;
 	cout << soln1::ConvertNumbersToString(99) << endl;
 	cout << soln1::ConvertNumbersToString(100) << endl;
@@ -263,5 +265,10 @@ void ConvertNumbersToStringEx() {
 	cout << soln1::ConvertNumbersToString(1111) << endl;
 	cout << soln1::ConvertNumbersToString(1234) << endl;
 	cout << soln1::ConvertNumbersToString(1234567890) << endl;
-	cout << soln1::ConvertNumbersToString(123456789023243) << endl;
+	cout << soln1::ConvertNumbersToString(1257899999) << endl;
+}
+void ConvertNumbersToStringEx() {
+	//ExampleConvertNumbersToString();
+	int Number = soln1::ReadNumber();
+	cout << soln1::ConvertNumbersToString(Number);
 }
