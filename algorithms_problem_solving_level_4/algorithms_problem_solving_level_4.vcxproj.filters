@@ -32,5 +32,8 @@
     <ClInclude Include="3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="4_.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

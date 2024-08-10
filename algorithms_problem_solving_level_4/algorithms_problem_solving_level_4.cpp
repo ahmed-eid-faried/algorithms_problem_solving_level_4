@@ -3,6 +3,7 @@
 #include "1_soln1_2.h"
 #include "2.h"
 #include "3.h"
+#include "4_.h"
 
 int main()
 {
@@ -10,6 +11,7 @@ int main()
     //ConvertNumbersToStringEx();
     //ConvertNumbersToStringEx2();
     //CheckLeapYear();
-    CheckLeapYear2();
+    //CheckLeapYear2();
+    NumbersOfDaysInYearEx();
 }
  
