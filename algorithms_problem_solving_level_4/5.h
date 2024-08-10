@@ -33,16 +33,16 @@ namespace soln5 {
 
 
 	}
-	bool isLeapYear(short year) {
-		return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+	bool isLeapYear(short Year) {
+		return (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0);
 	}
-	short NumOfDaysInYear(short year) {
-		return isLeapYear(year) ? 366 : 365;
+	short NumOfDaysInYear(short Year) {
+		return isLeapYear(Year) ? 366 : 365;
 	}
-	short NumOfDaysInMonth(short year, short month) {
-		switch ((enMonths)month) {
+	short NumOfDaysInMonth(short Month, short Year) {
+		switch ((enMonths)Month) {
 		case enMonths::January: return 31;
-		case enMonths::February: return isLeapYear(year) ? 29 : 28;
+		case enMonths::February: return isLeapYear(Year) ? 29 : 28;
 		case enMonths::March: return 31;
 		case enMonths::April: return 30;
 		case enMonths::May: return 31;
@@ -56,14 +56,34 @@ namespace soln5 {
 		default: return 0;
 		}
 	}
-	short NumOfHoursInMonth(short year, short month) {
-		return  NumOfDaysInMonth(year, month) * 24;
+	short NumOfHoursInMonth(short Month, short Year) {
+		return  NumOfDaysInMonth(Month, Year) * 24;
 	}
-	int NumOfMinutesInMonth(short year, short month) {
-		return NumOfHoursInMonth(year, month) * 60;
+	int NumOfMinutesInMonth(short Month, short Year) {
+		return NumOfHoursInMonth(Month, Year) * 60;
 	}
-	int NumOfSecondsInMonth(short year, short month) {
-		return NumOfMinutesInMonth(year, month) * 60;
+	int NumOfSecondsInMonth(short Month, short Year) {
+		return NumOfMinutesInMonth(Month, Year) * 60;
+	}
+
+
+	//other method
+	short NumberOfDaysInAMonth2(short Month, short Year)
+	{
+		if (Month < 1 || Month>12)
+			return 0;
+		if (Month == 2)
+		{
+			return isLeapYear(Year) ? 29 : 28;
+		}
+		short arr31Days[7] = { 1,3,5,7,8,10,12 };
+		for (short i = 1; i <= 7; i++)
+		{
+			if (arr31Days[i - 1] == Month)
+				return 31;
+		}
+		//if you reach here then its 30 days.
+		return 30;
 	}
 
 }
@@ -71,12 +91,12 @@ namespace soln5 {
 
 
 void NumbersOfDaysInMonthEx() {
-	short year = soln5::ReadNumber("Please Enter a Year to check? ");
-	short month = soln5::ReadNumber("Please Enter a Month to check? ");
-	cout << "Num Of Days    In Month : " << soln5::NumOfDaysInMonth(year, month) << endl;
-	cout << "Num Of Hours   In Month : " << soln5::NumOfHoursInMonth(year, month) << endl;
-	cout << "Num Of Minutes In Month : " << soln5::NumOfMinutesInMonth(year, month) << endl;
-	cout << "Num Of Seconds In Month : " << soln5::NumOfSecondsInMonth(year, month) << endl;
+	short Year = soln5::ReadNumber("Please Enter a Year to check? ");
+	short Month = soln5::ReadNumber("Please Enter a Month to check? ");
+	cout << "Num Of Days    In Month : " << soln5::NumOfDaysInMonth(Month, Year) << endl;
+	cout << "Num Of Hours   In Month : " << soln5::NumOfHoursInMonth(Month, Year) << endl;
+	cout << "Num Of Minutes In Month : " << soln5::NumOfMinutesInMonth(Month, Year) << endl;
+	cout << "Num Of Seconds In Month : " << soln5::NumOfSecondsInMonth(Month, Year) << endl;
 
 
 }

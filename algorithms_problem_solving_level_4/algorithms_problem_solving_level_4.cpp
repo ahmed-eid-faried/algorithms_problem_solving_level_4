@@ -5,15 +5,16 @@
 #include "3.h"
 #include "4_.h"
 #include "5.h"
+#include "6.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
     //ConvertNumbersToStringEx();
     //ConvertNumbersToStringEx2();
     //CheckLeapYear();
     //CheckLeapYear2();
     //NumbersOfDaysInYearEx();
-    NumbersOfDaysInMonthEx();
+    //NumbersOfDaysInMonthEx();
+    NumbersOfDaysInMonthEx2();
 }
  
