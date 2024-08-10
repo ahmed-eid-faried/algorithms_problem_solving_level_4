@@ -4,6 +4,14 @@ using namespace std;
 namespace soln7 {
 #include <iostream>
 
+	int ReadNumberInRange(int From, int To, string Message = "ENTER NUMBER") {
+		int NUM;
+		do {
+			cout << Message << " FROM " << to_string(From) << " TO " << to_string(To) << ": ";
+			cin >> NUM;
+		} while (NUM < From || NUM > To);
+		return NUM;
+	}
 
 	int ReadNumber(string Message)
 	{
@@ -95,8 +103,8 @@ namespace soln7 {
 
 void FindDayNameOfWeekByDateEX() {
 	short Year = soln7::ReadNumber("Please Enter a Year? ");
-	short Month = soln7::ReadNumber("Please Enter a Month? ");
-	short Day = soln7::ReadNumber("Please Enter a Day? ");
+	short Month = soln7::ReadNumberInRange(1,12,"Please Enter a Month? ");
+	short Day = soln7::ReadNumberInRange(1,31,"Please Enter a Day? ");
 	cout << "Date      : " << Day << '/' << Month << '/' << Year << endl;
 	short OrderedDay = soln7::FindDayNameOfWeekByDateGergorianCalender(Day, Month, Year);
 	cout << "Day Order : " << OrderedDay << endl;

@@ -2,8 +2,13 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-namespace soln11 {
+namespace soln13 {
 
+	struct sDate {
+		short Day;
+		short Month;
+		short Year;
+	};
 	int ReadNumberInRange(int From, int To, string Message = "ENTER NUMBER") {
 		int NUM;
 		do {
@@ -12,7 +17,6 @@ namespace soln11 {
 		} while (NUM < From || NUM > To);
 		return NUM;
 	}
-
 	int ReadNumber(string Message)
 	{
 		int Number;
@@ -27,6 +31,14 @@ namespace soln11 {
 
 
 	}
+	sDate ReadDate() {
+		sDate Date;
+		Date.Day = soln13::ReadNumberInRange(1,31,"Please Enter a Day? ");
+		Date.Month = soln13::ReadNumberInRange(1,12,"Please Enter a Month? ");
+		Date.Year = soln13::ReadNumber("Please Enter a Year? ");
+		return Date;
+	}
+
 	bool isLeapYear(short Year) {
 		return (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0);
 	}
@@ -158,11 +170,7 @@ namespace soln11 {
 		}
 		return NumOfDays;
 	}
-	struct sDate {
-		short Day;
-		short Month;
-		short Year;
-	};
+
 	sDate GetDateByNumOfDaysInYear(short NumOfDays, short Year) {
 		sDate Date;
 		for (short i = 1; i <= 12; i++)
@@ -178,19 +186,58 @@ namespace soln11 {
 		Date.Year = Year;
 		return Date;
 	}
+
+	sDate AddingDaysToDate(short AddDays, sDate Date) {
+		short NumOfDaysAfterAddingDays = AddDays + NumOfDaysFromBeginingOfYear(Date.Day, Date.Month, Date.Year);
+		short RemainOfDays = NumOfDaysAfterAddingDays;
+		while (true) {
+			short NumOfDaysInAYear = NumOfDaysInYear(Date.Year);
+			if (NumOfDaysAfterAddingDays > NumOfDaysInAYear) {
+				RemainOfDays -= NumOfDaysInAYear;
+				Date.Year++;
+			}
+			else { break; }
+		}
+		Date = GetDateByNumOfDaysInYear(RemainOfDays, Date.Year);
+		return Date;
+	}
+	enum enComparing {
+		bigger = 1,
+		smaller = 0,
+		equal = -1,
+	};
+
+	enComparing ComparingTwoDate(sDate Date1, sDate Date2) {
+		return (Date1.Year != Date2.Year) ? (enComparing)(Date1.Year > Date2.Year) :
+			(Date1.Month != Date2.Month) ? (enComparing)(Date1.Month > Date2.Month) :
+			(Date1.Day != Date2.Day) ? (enComparing)(Date1.Day > Date2.Day) : enComparing::equal;
+	}
+	string ResultOfComparing(enComparing Comparing, string Title) {
+		switch (Comparing)
+		{
+		case enComparing::bigger:
+			return Title + "1 is " + "after " + Title + "2";
+		case enComparing::smaller:
+			return Title + "1 is " + "before " + Title + "2";
+		case enComparing::equal:
+			return Title + "1 is " + "equal to " + Title + "2";
+		default:
+			return Title + "1 is " + "after " + Title + "2";
+		}
+	}
+
 }
 
 
 
-void PrintDateByNumOfDaysInYearEx() {
-	short Day = soln11::ReadNumberInRange(1,31,"Please Enter a Day? ");
-	short Month = soln11::ReadNumberInRange(1,12,"Please Enter a Month? ");
-	short Year = soln11::ReadNumber("Please Enter a Year? ");
-	cout << endl;
-	short NumOfDays = soln11::NumOfDaysFromBeginingOfYear(Day, Month, Year);
-	cout << "Numbers Of Days From Begining Of Year: " << NumOfDays << endl;
-	cout << "Date for [" << NumOfDays << "]: ";
-	soln11::sDate Date = soln11::GetDateByNumOfDaysInYear(NumOfDays, Year);
-	printf("%5d/%5d/%5d", Date.Day, Date.Month, Date.Year);
-	cout << endl;
+void ComparingTwoDateEx() {
+	cout << "Date1: " << endl;
+	soln13::sDate Date1 = soln13::ReadDate();
+	cout << "Date2: " << endl;
+	soln13::sDate Date2 = soln13::ReadDate();
+
+	soln13::enComparing result = soln13::ComparingTwoDate(Date1, Date2);
+	cout << soln13::ResultOfComparing(result, "Date");
+
+
 }

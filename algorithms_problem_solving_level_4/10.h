@@ -3,6 +3,14 @@
 #include <iomanip>
 using namespace std;
 namespace soln10 {
+	int ReadNumberInRange(int From, int To, string Message = "ENTER NUMBER") {
+		int NUM;
+		do {
+			cout << Message << " FROM " << to_string(From) << " TO " << to_string(To) << ": ";
+			cin >> NUM;
+		} while (NUM < From || NUM > To);
+		return NUM;
+	}
 
 
 	int ReadNumber(string Message)
@@ -155,8 +163,8 @@ namespace soln10 {
 
 
 void NumOfDaysFromBeginingOfYearEx() {
-	short Day = soln10::ReadNumber("Please Enter a Day? ");
-	short Month = soln10::ReadNumber("Please Enter a Month? ");
+	short Day = soln10::ReadNumberInRange(1,31,"Please Enter a Day? ");
+	short Month = soln10::ReadNumberInRange(1,12,"Please Enter a Month? ");
 	short Year = soln10::ReadNumber("Please Enter a Year? ");
 	cout << endl;
 	cout << "Numbers Of Days From Begining Of Year: " <<

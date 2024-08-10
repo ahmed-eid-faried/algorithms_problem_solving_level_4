@@ -23,10 +23,19 @@ namespace soln12 {
 
 
 	}
+	int ReadNumberInRange(int From, int To, string Message = "ENTER NUMBER") {
+		int NUM;
+		do {
+			cout << Message << " FROM " << to_string(From) << " TO " << to_string(To) << ": ";
+			cin >> NUM;
+		} while (NUM < From || NUM > To);
+		return NUM;
+	}
+
 	sDate ReadDate() {
 		sDate Date;
-		Date.Day = soln12::ReadNumber("Please Enter a Day? ");
-		Date.Month = soln12::ReadNumber("Please Enter a Month? ");
+		Date.Day = soln12::ReadNumberInRange(1,31,"Please Enter a Day? ");
+		Date.Month = soln12::ReadNumberInRange(1,12,"Please Enter a Month? ");
 		Date.Year = soln12::ReadNumber("Please Enter a Year? ");
 		return Date;
 	}
