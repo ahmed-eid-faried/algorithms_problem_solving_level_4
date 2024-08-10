@@ -8,6 +8,7 @@
 #include "6.h"
 #include "7.h"
 #include "8.h"
+#include "9.h"
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
     //NumbersOfDaysInMonthEx();
     //NumbersOfDaysInMonthEx2();
     //FindDayNameOfWeekByDateEX();
-    PrintMonthCalenderEx();
+    //PrintMonthCalenderEx();
+    PrintMonthYearCalenderEx();
 }
  
