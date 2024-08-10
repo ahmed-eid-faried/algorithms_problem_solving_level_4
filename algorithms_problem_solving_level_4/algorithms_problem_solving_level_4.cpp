@@ -6,6 +6,7 @@
 #include "4_.h"
 #include "5.h"
 #include "6.h"
+#include "7.h"
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
     //CheckLeapYear2();
     //NumbersOfDaysInYearEx();
     //NumbersOfDaysInMonthEx();
-    NumbersOfDaysInMonthEx2();
+    //NumbersOfDaysInMonthEx2();
+    FindDayNameOfWeekByDateEX();
 }
  
