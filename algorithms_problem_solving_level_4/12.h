@@ -4,7 +4,11 @@
 using namespace std;
 namespace soln12 {
 
-
+	struct sDate {
+		short Day;
+		short Month;
+		short Year;
+	};
 	int ReadNumber(string Message)
 	{
 		int Number;
@@ -19,6 +23,14 @@ namespace soln12 {
 
 
 	}
+	sDate ReadDate() {
+		sDate Date;
+		Date.Day = soln12::ReadNumber("Please Enter a Day? ");
+		Date.Month = soln12::ReadNumber("Please Enter a Month? ");
+		Date.Year = soln12::ReadNumber("Please Enter a Year? ");
+		return Date;
+	}
+
 	bool isLeapYear(short Year) {
 		return (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0);
 	}
@@ -150,11 +162,7 @@ namespace soln12 {
 		}
 		return NumOfDays;
 	}
-	struct sDate {
-		short Day;
-		short Month;
-		short Year;
-	};
+
 	sDate GetDateByNumOfDaysInYear(short NumOfDays, short Year) {
 		sDate Date;
 		for (short i = 1; i <= 12; i++)
@@ -171,18 +179,18 @@ namespace soln12 {
 		return Date;
 	}
 
-	sDate AddingDaysToDate(short NumOfDaysAfterAddingDays, short Year) {
-		sDate Date;
+	sDate AddingDaysToDate(short AddDays, sDate Date) {
+		short NumOfDaysAfterAddingDays = AddDays + NumOfDaysFromBeginingOfYear(Date.Day, Date.Month, Date.Year);
 		short RemainOfDays = NumOfDaysAfterAddingDays;
 		while (true) {
-			short NumOfDaysInAYear = NumOfDaysInYear(Year);
+			short NumOfDaysInAYear = NumOfDaysInYear(Date.Year);
 			if (NumOfDaysAfterAddingDays > NumOfDaysInAYear) {
 				RemainOfDays -= NumOfDaysInAYear;
-				Year++;
+				Date.Year++;
 			}
 			else { break; }
 		}
-		Date = GetDateByNumOfDaysInYear(RemainOfDays, Year);
+		Date = GetDateByNumOfDaysInYear(RemainOfDays, Date.Year);
 		return Date;
 	}
 }
@@ -190,25 +198,18 @@ namespace soln12 {
 
 
 void DateAfterAddingDaysEx() {
-	short Day = soln12::ReadNumber("Please Enter a Day? ");
-	short Month = soln12::ReadNumber("Please Enter a Month? ");
-	short Year = soln12::ReadNumber("Please Enter a Year? ");
+	soln12::sDate Date = soln12::ReadDate();
 	short AddDays = soln12::ReadNumber("How many days to add? ");
 	cout << endl;
-	short NumOfDays = soln12::NumOfDaysFromBeginingOfYear(Day, Month, Year);
+
+	short NumOfDays = soln12::NumOfDaysFromBeginingOfYear(Date.Day, Date.Month, Date.Year);
 	cout << "Numbers Of Days From Begining Of Year: " << NumOfDays << endl;
-
-
 	cout << "Date for [" << NumOfDays << "]: ";
-	soln12::sDate Date = soln12::GetDateByNumOfDaysInYear(NumOfDays, Year);
+	Date = soln12::GetDateByNumOfDaysInYear(NumOfDays, Date.Year);
 	printf("%5d/%5d/%5d\n", Date.Day, Date.Month, Date.Year);
 
-	short NumOfDaysAfterAddingDays = AddDays + NumOfDays;
 	cout << "Date After Adding [" << AddDays << "] Days: ";
-	soln12::sDate Date2 = soln12::AddingDaysToDate(NumOfDaysAfterAddingDays, Year);
-	printf("%5d/%5d/%5d\n", Date2.Day, Date2.Month, Date2.Year);
-
-
-
+	Date = soln12::AddingDaysToDate(AddDays, Date);
+	printf("%5d/%5d/%5d\n", Date.Day, Date.Month, Date.Year);
 	cout << endl;
 }
