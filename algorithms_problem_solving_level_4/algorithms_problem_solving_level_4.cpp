@@ -10,6 +10,8 @@
 #include "8.h"
 #include "9.h"
 #include "10.h"
+#include "11.h"
+using namespace soln11;
 
 int main()
 {
@@ -23,6 +25,7 @@ int main()
     //FindDayNameOfWeekByDateEX();
     //PrintMonthCalenderEx();
     //PrintMonthYearCalenderEx();
-    NumOfDaysFromBeginingOfYearEx();
+    //NumOfDaysFromBeginingOfYearEx();
+    PrintDateByNumOfDaysInYearEx();
 }
  
