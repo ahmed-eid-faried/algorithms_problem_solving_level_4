@@ -150,21 +150,25 @@ namespace soln11 {
 		}
 		return NumOfDays;
 	}
-	void PrintDateByNumOfDaysInYear(short NumOfDays, short Year) {
-		short Day = 1;
-		short Month = 1;
+	struct sDate {
+		short Day;
+		short Month;
+		short Year;
+	};
+	sDate GetDateByNumOfDaysInYear(short NumOfDays, short Year) {
+		sDate Date;
 		for (short i = 1; i <= 12; i++)
 		{
-			Month = i + 1;
-			NumOfDays -= NumOfDaysInMonth(i, Year);
-			if (NumOfDays < 0) {
-				Month = i;
-				NumOfDays += NumOfDaysInMonth(i, Year);
-				break;
+			short NumOfDaysInAMonth = NumOfDaysInMonth(i, Year);
+			if (NumOfDays > NumOfDaysInAMonth) {
+				NumOfDays -= NumOfDaysInMonth(i, Year);
+				Date.Month = i + 1;
 			}
+			else { break; }
 		}
-		Day = NumOfDays;
-		printf("%5d/%5d/%5d", Day, Month, Year);
+		Date.Day = NumOfDays;
+		Date.Year = Year;
+		return Date;
 	}
 }
 
@@ -178,6 +182,7 @@ void PrintDateByNumOfDaysInYearEx() {
 	short NumOfDays = soln11::NumOfDaysFromBeginingOfYear(Day, Month, Year);
 	cout << "Numbers Of Days From Begining Of Year: " << NumOfDays << endl;
 	cout << "Date for [" << NumOfDays << "]: ";
-	soln11::PrintDateByNumOfDaysInYear(NumOfDays, Year);
+	soln11::sDate Date = soln11::GetDateByNumOfDaysInYear(NumOfDays, Year);
+	printf("%5d/%5d/%5d", Date.Day, Date.Month, Date.Year);
 	cout << endl;
 }
