@@ -224,17 +224,15 @@ namespace soln1 {
 	}
 	string ConvertNumbersToString(int  Num) {
 		vector<int> ThreeDigitChunks = numberToThreeDigitChunks(Num);
-		///////////////////////////////////////////////////////////////
-		//int LastThreeDigitChunk = ThreeDigitChunks[ThreeDigitChunks.size() - 1];
-		//return ConvertThreeDigitChunkToString(LastThreeDigitChunk); 
-		string str = "";
+   		string str = "";
 		for (int i = 0; i < ThreeDigitChunks.size(); i++)
 		{
 			str += ConvertThreeDigitChunkToString(ThreeDigitChunks[i]);
-			str += Places((enPlaces)(ThreeDigitChunks.size() - 1 - i));
+			if (ThreeDigitChunks[i] != 0) { str += Places((enPlaces)(ThreeDigitChunks.size() - 1 - i)); }
 			if (i != ThreeDigitChunks.size() - 1) {
-				if (ThreeDigitChunks[i] != 1 && i > 0) { str += "s"; }
-				str += " and ";
+				if (ThreeDigitChunks[i] != 1 && ThreeDigitChunks[i] != 0 && i > 0) { str += "s"; }
+				if (ThreeDigitChunks[i + 1] != 0)str += " and ";
+
 			}
 
 		}
