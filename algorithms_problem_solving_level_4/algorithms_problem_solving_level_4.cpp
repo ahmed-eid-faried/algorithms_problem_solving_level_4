@@ -11,6 +11,7 @@
 #include "9.h"
 #include "10.h"
 #include "11.h"
+#include "12.h"
 using namespace soln11;
 
 int main()
@@ -26,6 +27,7 @@ int main()
     //PrintMonthCalenderEx();
     //PrintMonthYearCalenderEx();
     //NumOfDaysFromBeginingOfYearEx();
-    PrintDateByNumOfDaysInYearEx();
+    //PrintDateByNumOfDaysInYearEx();
+    DateAfterAddingDaysEx();
 }
  
