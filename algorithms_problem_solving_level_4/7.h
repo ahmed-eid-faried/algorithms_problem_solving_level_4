@@ -59,7 +59,7 @@ namespace soln7 {
 		Friday,
 		Saturday
 	};
-	short FindDayNameOfWeekByDate(short Day, short Month, short Year) {
+	short FindDayNameOfWeekByDateGergorianCalender(short Day, short Month, short Year) {
 		int a = (14 - Month) / 12;
 		int y = Year - a;
 		int m = Month + 12 * a - 2;
@@ -98,7 +98,7 @@ void FindDayNameOfWeekByDateEX() {
 	short Month = soln7::ReadNumber("Please Enter a Month? ");
 	short Day = soln7::ReadNumber("Please Enter a Day? ");
 	cout << "Date      : " << Day << '/' << Month << '/' << Year << endl;
-	short OrderedDay = soln7::FindDayNameOfWeekByDate(Day, Month, Year);
+	short OrderedDay = soln7::FindDayNameOfWeekByDateGergorianCalender(Day, Month, Year);
 	cout << "Day Order : " << OrderedDay << endl;
 	cout << "Day Name  : " << soln7::DaysOfWeek[OrderedDay] << endl;
 }
