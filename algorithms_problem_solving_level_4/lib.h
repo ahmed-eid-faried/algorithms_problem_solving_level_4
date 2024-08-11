@@ -323,7 +323,7 @@ namespace lib {
 			if (Date.Month == 2 && Date.Day == 29)Date.Day == 28;
 		}
 	}
-	sDate IncreaseDateByOneDecade(sDate Date) { return Date; }
+	sDate IncreaseDateByOneDecade(sDate Date) { return IncreaseDateByXYearsFaster(10, Date); }
 	sDate IncreaseDateByXDecades(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByXDecadesFaster(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByOneCentury(sDate Date) { return Date; }
