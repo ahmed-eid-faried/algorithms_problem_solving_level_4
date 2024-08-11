@@ -377,6 +377,14 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByOneWeek(sDate Date) { return DecreaseDateByXDays(7, Date); }
+	sDate DecreaseDateByXWeeks(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = DecreaseDateByOneWeek(Date);
+		}
+		return Date;
+	}
 
 
 }
