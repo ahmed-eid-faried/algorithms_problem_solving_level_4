@@ -18,6 +18,7 @@
 #include "16.h"
 #include "17.h"
 #include "17_2.h"
+#include "18.h"
 using namespace soln11;
 
 int main()
@@ -40,6 +41,8 @@ int main()
     //IsLastDayAndIsLastMonth();
     //AddingOneDayToDateEx();
     //Differance2DateEx();
-    Differance2DateEx2();
+    //Differance2DateEx2();
+    CalculateYourAgeInDayEx();
+
 }
  

@@ -77,5 +77,8 @@
     <ClInclude Include="17_2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="18.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

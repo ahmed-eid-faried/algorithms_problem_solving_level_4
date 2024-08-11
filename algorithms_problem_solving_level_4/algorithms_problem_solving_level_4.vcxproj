@@ -139,6 +139,7 @@
     <ClInclude Include="16.h" />
     <ClInclude Include="17.h" />
     <ClInclude Include="17_2.h" />
+    <ClInclude Include="18.h" />
     <ClInclude Include="1_soln1_2.h" />
     <ClInclude Include="1_text_of_numbers.h" />
     <ClInclude Include="2.h" />
