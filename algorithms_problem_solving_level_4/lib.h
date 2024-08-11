@@ -420,7 +420,6 @@ namespace lib {
 		}
 		return Date;
 	}
-
 	sDate DecreaseDateByXYearsFaster(int x, sDate Date) {
 		Date.Year -= x;
 		if (!isLeapYear(Date.Year))
@@ -430,6 +429,14 @@ namespace lib {
 		return Date;
 	}
 	sDate DecreaseDateByOneDecade(sDate Date) { return DecreaseDateByXYearsFaster(10, Date); }
+	sDate DecreaseDateByXDecades(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = DecreaseDateByOneDecade(Date);
+
+		}
+		return Date;
+	}
 
 
 }
