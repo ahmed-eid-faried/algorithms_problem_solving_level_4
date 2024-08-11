@@ -38,6 +38,7 @@ int main()
     //IsDate1EqualToDate2Ex();
     //IsLastDayAndIsLastMonth();
     //AddingOneDayToDateEx();
-    Differance2DateEx();
+    //Differance2DateEx();
+    Differance2DateEx2();
 }
  
