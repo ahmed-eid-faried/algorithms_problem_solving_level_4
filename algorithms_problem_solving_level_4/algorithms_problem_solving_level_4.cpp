@@ -20,6 +20,7 @@
 #include "17_2.h"
 #include "18.h"
 #include "19.h"
+#include "20.h"
 using namespace soln11;
 
 int main()
@@ -44,6 +45,7 @@ int main()
     //Differance2DateEx();
     //Differance2DateEx2();
     //CalculateYourAgeInDayEx();
-    Differance2DateEx3();
+    //Differance2DateEx3();
+    IncreaseDateByXDaysEX();
 }
  

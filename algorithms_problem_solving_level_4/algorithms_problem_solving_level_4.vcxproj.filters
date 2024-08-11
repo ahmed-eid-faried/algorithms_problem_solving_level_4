@@ -83,5 +83,47 @@
     <ClInclude Include="19.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="20.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="21.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="22.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="23.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="24.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="25.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="26.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="27.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="28.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="29.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="30.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="31.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
