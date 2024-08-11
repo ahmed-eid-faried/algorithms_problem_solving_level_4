@@ -300,7 +300,7 @@ namespace lib {
 		}
 		return Date;
 	}
-	sDate IncreaseDateByOneYear(sDate Date) { return Date; }
+	sDate IncreaseDateByOneYear(sDate Date) { return IncreaseDateByXMonths(12,Date); }
 	sDate IncreaseDateByXYears(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByXYearsFaster(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByOneDecade(sDate Date) { return Date; }
