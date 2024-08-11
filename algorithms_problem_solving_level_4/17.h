@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <string>
 using namespace std;
-namespace soln16 {
+namespace soln17 {
 	struct sDate {
 		short Day;
 		short Month;
@@ -33,9 +33,9 @@ namespace soln16 {
 	}
 	sDate ReadDate() {
 		sDate Date;
-		Date.Day = soln16::ReadNumberInRange(1, 31, "Please Enter a Day? ");
-		Date.Month = soln16::ReadNumberInRange(1, 12, "Please Enter a Month? ");
-		Date.Year = soln16::ReadNumber("Please Enter a Year? ");
+		Date.Day = soln17::ReadNumberInRange(1, 31, "Please Enter a Day? ");
+		Date.Month = soln17::ReadNumberInRange(1, 12, "Please Enter a Month? ");
+		Date.Year = soln17::ReadNumber("Please Enter a Year? ");
 		return Date;
 	}
 	bool isLeapYear(short Year) {
@@ -51,7 +51,7 @@ namespace soln16 {
 
 		return	(Month == 2) ? (isLeapYear(Year) ? 29 : 28) : Days[Month - 1];
 	}
- 	short NumOfDaysInMonth2(short Month, short Year)
+	short NumOfDaysInMonth2(short Month, short Year)
 	{
 		if (Month < 1 || Month>12)return 0;
 		return	(Month == 2) ? (isLeapYear(Year) ? 29 : 28) : ((Month == 4 || Month == 6 || Month == 9 || Month == 11) ? 30 : 31);
@@ -211,13 +211,13 @@ namespace soln16 {
 		switch (Comparing)
 		{
 		case enComparing::bigger:
-			return Title + "1 is " + "after " + Title + "2";
+			return Title + "1 is " + "more than " + Title + "2\n";
 		case enComparing::smaller:
-			return Title + "1 is " + "before " + Title + "2";
+			return Title + "1 is " + "less than " + Title + "2\n";
 		case enComparing::equal:
-			return Title + "1 is " + "equal to " + Title + "2";
+			return Title + "1 is " + "equal to " + Title + "2\n";
 		default:
-			return Title + "1 is " + "after " + Title + "2";
+			return Title + "1 is " + "after " + Title + "2\n";
 		}
 	}
 	bool IsLastDay(sDate Date) {
@@ -241,18 +241,38 @@ namespace soln16 {
 		}
 		return Date;
 	}
+	enComparing ComparingTwoDate(sDate Date1, sDate Date2) {
+		return (Date1.Year != Date2.Year) ? (enComparing)(Date1.Year > Date2.Year) :
+			(Date1.Month != Date2.Month) ? (enComparing)(Date1.Month > Date2.Month) :
+			(Date1.Day != Date2.Day) ? (enComparing)(Date1.Day > Date2.Day) : enComparing::equal;
+	}
+
+	int Differance2Date(sDate Date1, sDate Date2) {
+		int Year = 0;
+		for (int i = Date2.Year; i < Date1.Year; i++) { Year += NumOfDaysInYear(i); }
+		int NumOfDays1 = NumOfDaysFromBeginingOfYear(Date1.Day, Date1.Month, Date1.Year);
+		int NumOfDays2 = NumOfDaysFromBeginingOfYear(Date2.Day, Date2.Month, Date2.Year);
+		int del = Year + NumOfDays1 - NumOfDays2;
+
+
+		return del;
+	}
 }
 
 
 
-void AddingOneDayToDateEx() {
-	soln16::sDate Date = soln16::ReadDate();
+void Differance2DateEx() {
+	cout << "Date1: " << endl;
+	soln17::sDate Date1 = soln17::ReadDate();
+	cout << "Date2: " << endl;
+	soln17::sDate Date2 = soln17::ReadDate();
 
+	soln17::enComparing result = soln17::ComparingTwoDate(Date1, Date2);
+	cout << soln17::ResultOfComparing(result, "Date");
 
-	cout << "Date After Adding [One] Day: ";
-	Date = soln16::AddingOneDayToDate(Date);
-	printf("%5d/%5d/%5d\n", Date.Day, Date.Month, Date.Year);
-	cout << endl;
+	int Diff = (result != soln17::enComparing::smaller) ?
+		soln17::Differance2Date(Date1, Date2) :
+		soln17::Differance2Date(Date2, Date1);
 
-
+	cout << "Differance between two Date: " << Diff << endl;
 }
