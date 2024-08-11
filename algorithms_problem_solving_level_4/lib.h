@@ -429,6 +429,8 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByOneDecade(sDate Date) { return DecreaseDateByXYearsFaster(10, Date); }
+
 
 }
 
