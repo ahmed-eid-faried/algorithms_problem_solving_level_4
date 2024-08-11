@@ -279,20 +279,20 @@ namespace lib {
 		{
 			Date = IncreaseDateByOneDay(Date);
 		}
-
+		return Date;
 	}
-	sDate IncreaseDateByOneWeek(sDate Date) {}
-	sDate IncreaseDateByXWeeks(int x, sDate Date) {}
-	sDate IncreaseDateByOneMonth(sDate Date) {}
-	sDate IncreaseDateByXMonths(int x, sDate Date) {}
-	sDate IncreaseDateByOneYear(sDate Date) {}
-	sDate IncreaseDateByXYears(int x, sDate Date) {}
-	sDate IncreaseDateByXYearsFaster(int x, sDate Date) {}
-	sDate IncreaseDateByOneDecade(sDate Date) {}
-	sDate IncreaseDateByXDecades(int x, sDate Date) {}
-	sDate IncreaseDateByXDecadesFaster(int x, sDate Date) {}
-	sDate IncreaseDateByOneCentury(sDate Date) {}
-	sDate IncreaseDateByOneMillennium(sDate Date) {}
+	sDate IncreaseDateByOneWeek(sDate Date) { return IncreaseDateByXDays(7, Date); }
+	sDate IncreaseDateByXWeeks(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByOneMonth(sDate Date) { return Date; }
+	sDate IncreaseDateByXMonths(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByOneYear(sDate Date) { return Date; }
+	sDate IncreaseDateByXYears(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByXYearsFaster(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByOneDecade(sDate Date) { return Date; }
+	sDate IncreaseDateByXDecades(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByXDecadesFaster(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByOneCentury(sDate Date) { return Date; }
+	sDate IncreaseDateByOneMillennium(sDate Date) { return Date; }
 }
 
 

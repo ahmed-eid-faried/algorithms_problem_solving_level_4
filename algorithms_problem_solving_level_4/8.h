@@ -140,7 +140,7 @@ namespace soln8 {
 
 
 
-void PrintMonthCalenderEx() {
+void PrintMonthCalenderEX() {
 	short Year = soln8::ReadNumber("Please Enter a Year? ");
 	short Month = soln8::ReadNumberInRange(1,12,"Please Enter a Month? ");
 	//short Day = soln8::ReadNumberInRange(1,31,"Please Enter a Day? ");

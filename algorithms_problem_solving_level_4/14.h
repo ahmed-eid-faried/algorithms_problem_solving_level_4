@@ -233,7 +233,7 @@ namespace soln14 {
 
 
 
-void IsDate1EqualToDate2Ex() {
+void IsDate1EqualToDate2EX() {
 	cout << "Date1: " << endl;
 	soln14::sDate Date1 = soln14::ReadDate();
 	cout << "Date2: " << endl;

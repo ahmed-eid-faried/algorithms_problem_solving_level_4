@@ -5,7 +5,7 @@
 #include "lib.h"
 using namespace std;
 
-void IncreaseDateByOneCenturyex() {
+void IncreaseDateByOneCenturyEX() {
 	lib::sDate Date1 = lib::ReadDate();
 	cout << "\nDate After: \n";
 	Date1 = lib::IncreaseDateByOneDay(Date1);

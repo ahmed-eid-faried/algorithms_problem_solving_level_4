@@ -57,7 +57,7 @@ namespace soln6 {
 
 
 
-void NumbersOfDaysInMonthEx2() {
+void NumbersOfDaysInMonthEX2() {
 	short Year = soln6::ReadNumber("Please Enter a Year to check? ");
 	short Month = soln6::ReadNumber("Please Enter a Month to check? ");
 	cout << "Num Of Days    In Month : " << soln6::NumOfDaysInMonth(Month, Year) << endl;

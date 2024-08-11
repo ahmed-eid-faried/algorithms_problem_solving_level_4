@@ -230,7 +230,7 @@ namespace soln13 {
 
 
 
-void ComparingTwoDateEx() {
+void ComparingTwoDateEX() {
 	cout << "Date1: " << endl;
 	soln13::sDate Date1 = soln13::ReadDate();
 	cout << "Date2: " << endl;

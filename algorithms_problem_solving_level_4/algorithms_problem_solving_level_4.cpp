@@ -1,5 +1,5 @@
 #include <iostream>
-#include "1_text_of_numbers.h"
+#include "1_tEXt_of_numbers.h"
 #include "1_soln1_2.h"
 #include "2.h"
 #include "3.h"
@@ -21,31 +21,55 @@
 #include "18.h"
 #include "19.h"
 #include "20.h"
+#include "21.h"
+#include "22.h"
+#include "23.h"
+#include "24.h"
+#include "25.h"
+#include "26.h"
+#include "27.h"
+#include "28.h"
+#include "29.h"
+#include "30.h"
+#include "31.h"
+#include "32.h"
 using namespace soln11;
 
 int main()
 {
-    //ConvertNumbersToStringEx();
-    //ConvertNumbersToStringEx2();
+    //ConvertNumbersToStringEX();
+    //ConvertNumbersToStringEX2();
     //CheckLeapYear();
     //CheckLeapYear2();
-    //NumbersOfDaysInYearEx();
-    //NumbersOfDaysInMonthEx();
-    //NumbersOfDaysInMonthEx2();
+    //NumbersOfDaysInYearEX();
+    //NumbersOfDaysInMonthEX();
+    //NumbersOfDaysInMonthEX2();
     //FindDayNameOfWeekByDateEX();
-    //PrintMonthCalenderEx();
-    //PrintMonthYearCalenderEx();
-    //NumOfDaysFromBeginingOfYearEx();
-    //PrintDateByNumOfDaysInYearEx();
-    //DateAfterAddingDaysEx();
-    //ComparingTwoDateEx();
-    //IsDate1EqualToDate2Ex();
+    //PrintMonthCalenderEX();
+    //PrintMonthYearCalenderEX();
+    //NumOfDaysFromBeginingOfYearEX();
+    //PrintDateByNumOfDaysInYearEX();
+    //DateAfterAddingDaysEX();
+    //ComparingTwoDateEX();
+    //IsDate1EqualToDate2EX();
     //IsLastDayAndIsLastMonth();
-    //AddingOneDayToDateEx();
-    //Differance2DateEx();
-    //Differance2DateEx2();
-    //CalculateYourAgeInDayEx();
-    //Differance2DateEx3();
-    IncreaseDateByXDaysEX();
+    //AddingOneDayToDateEX();
+    //Differance2DateEX();
+    //Differance2DateEX2();
+    //CalculateYourAgeInDayEX();
+    //Differance2DateEX3();
+    //IncreaseDateByXDaysEX();
+    IncreaseDateByOneWeekEX();
+    //IncreaseDateByXWeeksEX();
+    //IncreaseDateByOneMonthEX();
+    //IncreaseDateByXMonthsEX();
+    //IncreaseDateByOneYearEX();
+    //IncreaseDateByXYearsEX();
+    //IncreaseDateByXYearsFasterEX();
+    //IncreaseDateByOneDecadeEX();
+    //IncreaseDateByXDecadesEX();
+    //IncreaseDateByXDecadesFasterEX();
+    //IncreaseDateByOneCenturyEX();
+    //IncreaseDateByOneMillenniumEX();
 }
  

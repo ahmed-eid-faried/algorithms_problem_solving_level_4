@@ -299,7 +299,7 @@ namespace soln18 {
 
 
 
-void CalculateYourAgeInDayEx() {
+void CalculateYourAgeInDayEX() {
 	cout << "Enter Your Birthday?: " << endl;
 	soln18::sDate Date = soln18::ReadDate();
 	cout << "Your Age is: " << CalculateYourAgeInDay(Date) << " Day(s)" << endl;

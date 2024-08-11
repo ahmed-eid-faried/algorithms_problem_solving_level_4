@@ -90,7 +90,7 @@ namespace soln5 {
 
 
 
-void NumbersOfDaysInMonthEx() {
+void NumbersOfDaysInMonthEX() {
 	short Year = soln5::ReadNumber("Please Enter a Year to check? ");
 	short Month = soln5::ReadNumber("Please Enter a Month to check? ");
 	cout << "Num Of Days    In Month : " << soln5::NumOfDaysInMonth(Month, Year) << endl;

@@ -146,7 +146,7 @@ namespace soln1 {
 			number = -number;
 		}
 
-		// Extract digits and store them in the vector
+		// EXtract digits and store them in the vector
 		while (number > 0) {
 			int digit = number % 10;
 			digits.insert(digits.begin(), digit); // Insert at the beginning to maintain order
@@ -169,7 +169,7 @@ namespace soln1 {
 			number = -number;
 		}
 
-		// Extract 3-digit chunks and store them in the vector
+		// EXtract 3-digit chunks and store them in the vector
 		while (number > 0) {
 			int chunk = number % 1000;
 			chunks.insert(chunks.begin(), chunk); // Insert at the beginning to maintain order
@@ -245,7 +245,7 @@ namespace soln1 {
 
 
 }
-void ExampleConvertNumbersToString() {
+void EXampleConvertNumbersToString() {
 	cout << soln1::ConvertNumbersToString(0) << endl;
 	cout << soln1::ConvertNumbersToString(1) << endl;
 	cout << soln1::ConvertNumbersToString(6) << endl;
@@ -265,8 +265,8 @@ void ExampleConvertNumbersToString() {
 	cout << soln1::ConvertNumbersToString(1234567890) << endl;
 	cout << soln1::ConvertNumbersToString(1257899999) << endl;
 }
-void ConvertNumbersToStringEx() {
-	//ExampleConvertNumbersToString();
+void ConvertNumbersToStringEX() {
+	//EXampleConvertNumbersToString();
 	int Number = soln1::ReadNumber();
 	cout << soln1::ConvertNumbersToString(Number);
 }

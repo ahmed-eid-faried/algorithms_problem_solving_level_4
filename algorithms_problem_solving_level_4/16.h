@@ -245,7 +245,7 @@ namespace soln16 {
 
 
 
-void AddingOneDayToDateEx() {
+void AddingOneDayToDateEX() {
 	soln16::sDate Date = soln16::ReadDate();
 
 

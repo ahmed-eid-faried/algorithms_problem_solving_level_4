@@ -182,7 +182,7 @@ namespace soln11 {
 
 
 
-void PrintDateByNumOfDaysInYearEx() {
+void PrintDateByNumOfDaysInYearEX() {
 	short Day = soln11::ReadNumberInRange(1,31,"Please Enter a Day? ");
 	short Month = soln11::ReadNumberInRange(1,12,"Please Enter a Month? ");
 	short Year = soln11::ReadNumber("Please Enter a Year? ");

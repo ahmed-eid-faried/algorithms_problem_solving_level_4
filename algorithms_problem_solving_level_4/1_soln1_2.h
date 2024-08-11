@@ -4,7 +4,7 @@
 using namespace std;
 namespace soln1_2 {
 
-	string NumberToText(int Number)
+	string NumberToTEXt(int Number)
 	{
 		if (Number == 0)
 		{
@@ -24,46 +24,46 @@ namespace soln1_2 {
 		   "","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty"
 		   ,"Ninety" };
 
-			return arr[Number / 10] + " " + NumberToText(Number % 10);
+			return arr[Number / 10] + " " + NumberToTEXt(Number % 10);
 		}
 		if (Number >= 100 && Number <= 199)
 		{
-			return "One Hundred " + NumberToText(Number % 100);
+			return "One Hundred " + NumberToTEXt(Number % 100);
 		}
 		if (Number >= 200 && Number <= 999)
 		{
-			return NumberToText(Number / 100) + "Hundreds " +
-				NumberToText(Number % 100);
+			return NumberToTEXt(Number / 100) + "Hundreds " +
+				NumberToTEXt(Number % 100);
 		}
 		if (Number >= 1000 && Number <= 1999)
 		{
-			return "One Thousand " + NumberToText(Number % 1000);
+			return "One Thousand " + NumberToTEXt(Number % 1000);
 		}
 
 
 		if (Number >= 2000 && Number <= 999999)
 		{
-			return NumberToText(Number / 1000) + "Thousands " +
-				NumberToText(Number % 1000);
+			return NumberToTEXt(Number / 1000) + "Thousands " +
+				NumberToTEXt(Number % 1000);
 		}
 		if (Number >= 1000000 && Number <= 1999999)
 		{
-			return "One Million " + NumberToText(Number % 1000000);
+			return "One Million " + NumberToTEXt(Number % 1000000);
 		}
 		if (Number >= 2000000 && Number <= 999999999)
 		{
-			return NumberToText(Number / 1000000) + "Millions " +
-				NumberToText(Number % 1000000);
+			return NumberToTEXt(Number / 1000000) + "Millions " +
+				NumberToTEXt(Number % 1000000);
 		}
 		if (Number >= 1000000000 && Number <= 1999999999)
 		{
-			return "One Billion " + NumberToText(Number %
+			return "One Billion " + NumberToTEXt(Number %
 				1000000000);
 		}
 		else
 		{
-			return NumberToText(Number / 1000000000) + "Billions " +
-				NumberToText(Number % 1000000000);
+			return NumberToTEXt(Number / 1000000000) + "Billions " +
+				NumberToTEXt(Number % 1000000000);
 		}
 	}
 	int ReadNumber()
@@ -78,8 +78,8 @@ namespace soln1_2 {
 
 
 
-void ConvertNumbersToStringEx2() {
+void ConvertNumbersToStringEX2() {
 	int Number = soln1_2::ReadNumber();
-	cout << soln1_2::NumberToText(Number);
+	cout << soln1_2::NumberToTEXt(Number);
 
 }

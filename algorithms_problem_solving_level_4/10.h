@@ -162,7 +162,7 @@ namespace soln10 {
 
 
 
-void NumOfDaysFromBeginingOfYearEx() {
+void NumOfDaysFromBeginingOfYearEX() {
 	short Day = soln10::ReadNumberInRange(1,31,"Please Enter a Day? ");
 	short Month = soln10::ReadNumberInRange(1,12,"Please Enter a Month? ");
 	short Year = soln10::ReadNumber("Please Enter a Year? ");

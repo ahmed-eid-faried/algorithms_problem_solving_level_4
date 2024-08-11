@@ -276,7 +276,7 @@ namespace soln17_2 {
 
 
 
-void Differance2DateEx2() {
+void Differance2DateEX2() {
 	cout << "Date1: " << endl;
 	soln17_2::sDate Date1 = soln17_2::ReadDate();
 	cout << "Date2: " << endl;

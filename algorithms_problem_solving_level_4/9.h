@@ -146,7 +146,7 @@ namespace soln9 {
 
 
 
-void PrintMonthYearCalenderEx() {
+void PrintMonthYearCalenderEX() {
 	short Year = soln9::ReadNumber("Please Enter a Year? "); 
 	cout << endl;
 	soln9::PrintMonthYearCalender(Year);

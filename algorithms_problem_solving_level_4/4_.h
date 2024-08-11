@@ -38,7 +38,7 @@ namespace soln4 {
 
 
 
-void NumbersOfDaysInYearEx() {
+void NumbersOfDaysInYearEX() {
 	short year = soln4::ReadNumber("Please Enter a Year to check? ");
 	cout << "Num Of Days    In Year : " << soln4::NumOfDaysInYear(year) << endl;
 	cout << "Num Of Hours   In Year : " << soln4::NumOfHoursInYear(year) << endl;

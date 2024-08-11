@@ -206,7 +206,7 @@ namespace soln12 {
 
 
 
-void DateAfterAddingDaysEx() {
+void DateAfterAddingDaysEX() {
 	soln12::sDate Date = soln12::ReadDate();
 	short AddDays = soln12::ReadNumber("How many days to add? ");
 	cout << endl;
