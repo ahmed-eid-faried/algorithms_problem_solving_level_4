@@ -413,6 +413,13 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByXYears(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = DecreaseDateByOneYear(Date);
+		}
+		return Date;
+	}
 
 
 }
