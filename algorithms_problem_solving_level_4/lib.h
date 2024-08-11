@@ -404,6 +404,15 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByOneYear(sDate Date) {
+		//return DecreaseDateByXMonths(12,Date);
+		Date.Year--;
+		if (!isLeapYear(Date.Year))
+		{
+			if (Date.Month == 2 && Date.Day == 29)Date.Day == 28;
+		}
+		return Date;
+	}
 
 
 }
