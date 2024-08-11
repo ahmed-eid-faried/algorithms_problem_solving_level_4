@@ -300,8 +300,22 @@ namespace lib {
 		}
 		return Date;
 	}
-	sDate IncreaseDateByOneYear(sDate Date) { return IncreaseDateByXMonths(12,Date); }
-	sDate IncreaseDateByXYears(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByOneYear(sDate Date) { 
+		//return IncreaseDateByXMonths(12,Date);
+		Date.Year ++;
+		if(!isLeapYear(Date.Year))
+		{
+			if (Date.Month == 2 && Date.Day == 29)Date.Day == 28;
+		}
+		return Date;	
+	}
+	sDate IncreaseDateByXYears(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = IncreaseDateByOneYear(Date);
+		}
+		return Date;
+	}
 	sDate IncreaseDateByXYearsFaster(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByOneDecade(sDate Date) { return Date; }
 	sDate IncreaseDateByXDecades(int x, sDate Date) { return Date; }
