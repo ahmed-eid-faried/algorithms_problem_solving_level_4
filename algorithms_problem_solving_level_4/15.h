@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <string>
 using namespace std;
-namespace soln14 {
+namespace soln15 {
 
 	struct sDate {
 		short Day;
@@ -34,9 +34,9 @@ namespace soln14 {
 	}
 	sDate ReadDate() {
 		sDate Date;
-		Date.Day = soln14::ReadNumberInRange(1, 31, "Please Enter a Day? ");
-		Date.Month = soln14::ReadNumberInRange(1, 12, "Please Enter a Month? ");
-		Date.Year = soln14::ReadNumber("Please Enter a Year? ");
+		Date.Day = soln15::ReadNumberInRange(1, 31, "Please Enter a Day? ");
+		Date.Month = soln15::ReadNumberInRange(1, 12, "Please Enter a Month? ");
+		Date.Year = soln15::ReadNumber("Please Enter a Year? ");
 		return Date;
 	}
 
@@ -228,22 +228,27 @@ namespace soln14 {
 			return Title + "1 is " + "after " + Title + "2";
 		}
 	}
+	bool IsLastDay(sDate Date) {
+		return Date.Day == NumOfDaysInMonth(Date.Month, Date.Year);
 
+	}
+	bool IsLastMonth(sDate Date) {
+		return Date.Month == 12;
+	}
 }
 
 
 
-void IsDate1EqualToDate2Ex() {
-	cout << "Date1: " << endl;
-	soln14::sDate Date1 = soln14::ReadDate();
-	cout << "Date2: " << endl;
-	soln14::sDate Date2 = soln14::ReadDate();
+void IsLastDayAndIsLastMonth() {
+	cout << "Date: " << endl;
+	soln15::sDate Date = soln15::ReadDate();
 
-	bool result = soln14::Date1IsMoreThanDate2(Date1, Date2);
-	result ? cout << "Date1 is more than Date2" << endl : cout << "Date1 is less than Date2" << endl;
 
-	bool result2 = soln14::IsDate1EqualToDate2(Date1, Date2);
-	result2 ? cout << "Date1 is equal to Date2" << endl : cout << "Date1 is not equal to Date2" << endl;
+	bool result = soln15::IsLastDay(Date);
+	result ? cout << "Yes, Day is Last Day in Month" << endl : cout << "No, Day is Not Last Day in Month" << endl;
+
+	bool result2 = soln15::IsLastMonth(Date);
+	result2 ? cout << "Yes, Month is Last Month in Year" << endl : cout << "No, Month is Not Last Month in Year" << endl;
 
 
 
