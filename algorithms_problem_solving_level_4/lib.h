@@ -385,6 +385,18 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByOneMonth(sDate Date) {
+		short NumOfDaysInAMonth = NumOfDaysInMonth(Date.Month, Date.Year);
+		return DecreaseDateByXDays(NumOfDaysInAMonth, Date);
+		//if (Date.Month == 1) {
+		//	Date.Month = 12;
+		//	Date.Year--;
+		//}
+		//else { Date.Month--; }
+		//short NumOfDaysInAMonth = NumOfDaysInMonth(Date.Month, Date.Year);
+		//if (Date.Day > NumOfDaysInAMonth) { Date.Day = NumOfDaysInAMonth; }
+		//return Date;
+	}
 
 
 }
