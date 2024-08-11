@@ -324,7 +324,13 @@ namespace lib {
 		}
 	}
 	sDate IncreaseDateByOneDecade(sDate Date) { return IncreaseDateByXYearsFaster(10, Date); }
-	sDate IncreaseDateByXDecades(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByXDecades(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date= IncreaseDateByOneDecade(Date);
+
+		}		
+		return Date; }
 	sDate IncreaseDateByXDecadesFaster(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByOneCentury(sDate Date) { return Date; }
 	sDate IncreaseDateByOneMillennium(sDate Date) { return Date; }
