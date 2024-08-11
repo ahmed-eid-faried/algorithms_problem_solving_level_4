@@ -276,22 +276,11 @@ namespace soln18 {
 	tm* GetNowDate() {
 		// current date/time based on current system
 		time_t now = time(0);
-
-		// convert now to string form using ctime_s
-		char dt[26];
-		ctime_s(dt, sizeof(dt), &now);
-
-		//cout << "The local date and time is: " << dt << endl;
-
-		// convert now to tm struct for UTC using gmtime_s
-		tm gmtm;
-		gmtime_s(&gmtm, &now);
-
-		char gmtm_str[26];
-		asctime_s(gmtm_str, sizeof(gmtm_str), &gmtm);
-
-		// cout << "The UTC date and time is:" << gmtm_str << endl;
-		return &gmtm;
+		// Create a tm structure to hold the result
+		static tm localTime;
+		// Use localtime_s to safely convert the time
+		localtime_s(&localTime, &now);
+		return &localTime;
 	}
 	sDate GetDateNow() {
 		sDate Date;
