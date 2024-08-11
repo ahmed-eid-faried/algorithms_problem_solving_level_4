@@ -61,8 +61,8 @@ int main()
 	//IncreaseDateByXDaysEX();
 	//IncreaseDateByOneWeekEX();
 	//IncreaseDateByXWeeksEX();
-	//IncreaseDateByOneMonthEX();
-	//IncreaseDateByXMonthsEX();
+	IncreaseDateByOneMonthEX();
+	IncreaseDateByXMonthsEX();
 	//IncreaseDateByOneYearEX();
 	//IncreaseDateByXYearsEX();
 	//IncreaseDateByXYearsFasterEX();

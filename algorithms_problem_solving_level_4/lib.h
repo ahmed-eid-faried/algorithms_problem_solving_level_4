@@ -421,6 +421,14 @@ namespace lib {
 		return Date;
 	}
 
+	sDate DecreaseDateByXYearsFaster(int x, sDate Date) {
+		Date.Year -= x;
+		if (!isLeapYear(Date.Year))
+		{
+			if (Date.Month == 2 && Date.Day == 29)Date.Day == 28;
+		}
+		return Date;
+	}
 
 }
 
