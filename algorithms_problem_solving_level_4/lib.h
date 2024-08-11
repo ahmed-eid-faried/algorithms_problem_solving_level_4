@@ -370,6 +370,14 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByXDays(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = DecreaseDateByOneDay(Date);
+		}
+		return Date;
+	}
+
 
 }
 
