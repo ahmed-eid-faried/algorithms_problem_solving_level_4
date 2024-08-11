@@ -441,6 +441,7 @@ namespace lib {
 		return DecreaseDateByXYearsFaster(x * 10, Date);
 	}
 	sDate DecreaseDateByOneCentury(sDate Date) { return DecreaseDateByXYearsFaster(100, Date); }
+	sDate DecreaseDateByOneMillennium(sDate Date) { return DecreaseDateByXYearsFaster(1000, Date); }
 
 
 
