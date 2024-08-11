@@ -437,6 +437,9 @@ namespace lib {
 		}
 		return Date;
 	}
+	sDate DecreaseDateByXDecadesFaster(int x, sDate Date) {
+		return DecreaseDateByXYearsFaster(x * 10, Date);
+	}
 
 
 }
