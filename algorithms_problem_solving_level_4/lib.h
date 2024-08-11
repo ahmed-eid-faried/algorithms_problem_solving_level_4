@@ -440,6 +440,8 @@ namespace lib {
 	sDate DecreaseDateByXDecadesFaster(int x, sDate Date) {
 		return DecreaseDateByXYearsFaster(x * 10, Date);
 	}
+	sDate DecreaseDateByOneCentury(sDate Date) { return DecreaseDateByXYearsFaster(100, Date); }
+
 
 
 }
