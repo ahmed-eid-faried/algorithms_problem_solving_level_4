@@ -397,6 +397,13 @@ namespace lib {
 		//if (Date.Day > NumOfDaysInAMonth) { Date.Day = NumOfDaysInAMonth; }
 		//return Date;
 	}
+	sDate DecreaseDateByXMonths(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = DecreaseDateByOneMonth(Date);
+		}
+		return Date;
+	}
 
 
 }
