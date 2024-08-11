@@ -292,6 +292,17 @@ namespace lib {
 	sDate IncreaseDateByOneMonth(sDate Date) {
 		short NumOfDaysInAMonth = NumOfDaysInMonth(Date.Month, Date.Year);
 		return IncreaseDateByXDays(NumOfDaysInAMonth, Date);
+		//if (Date.Month == 12) {
+		//	Date.Month = 1;
+		//	Date.Year++;
+		//}
+		//else { Date.Month++; }
+		//short NumOfDaysInAMonth = NumOfDaysInMonth(Date.Month, Date.Year);
+
+		//if (Date.Day > NumOfDaysInAMonth) {
+		//	Date.Day = NumOfDaysInAMonth;
+		//}
+		//return Date;
 	}
 	sDate IncreaseDateByXMonths(int x, sDate Date) {
 		for (int i = 0; i < x; i++)
@@ -322,6 +333,7 @@ namespace lib {
 		{
 			if (Date.Month == 2 && Date.Day == 29)Date.Day == 28;
 		}
+		return Date;
 	}
 	sDate IncreaseDateByOneDecade(sDate Date) { return IncreaseDateByXYearsFaster(10, Date); }
 	sDate IncreaseDateByXDecades(int x, sDate Date) {
@@ -335,6 +347,30 @@ namespace lib {
 	sDate IncreaseDateByXDecadesFaster(int x, sDate Date) { return IncreaseDateByXYearsFaster(x * 10, Date); }
 	sDate IncreaseDateByOneCentury(sDate Date) { return IncreaseDateByXYearsFaster(100, Date); }
 	sDate IncreaseDateByOneMillennium(sDate Date) { return IncreaseDateByXYearsFaster(1000, Date); }
+
+	bool IsFristDay(sDate Date) {
+		return Date.Day == 1;
+
+	}
+	bool IsFristMonth(sDate Date) {
+		return Date.Month == 1;
+	}
+	sDate DecreaseDateByOneDay(sDate Date) {
+		if (!IsFristDay(Date)) { Date.Day -= 1; }
+		else if (!IsFristMonth(Date)) {
+			Date.Month -= 1;
+			Date.Day = NumOfDaysInMonth(Date.Month, Date.Year);
+
+		}
+		else {
+			Date.Year -= 1;
+			Date.Month = 12;
+			Date.Day = 31;
+			//Date.Day = NumOfDaysInMonth(Date.Month, Date.Year);
+		}
+		return Date;
+	}
+
 }
 
 
