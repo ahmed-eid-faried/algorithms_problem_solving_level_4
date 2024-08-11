@@ -262,7 +262,7 @@ namespace soln19 {
 		int Days = 0;
 		enComparing result = ComparingTwoDate(Date1, Date2);
 		int swapflap = 1;
-		((bool)result) ? swapflap = 1 : swapflap = -1;
+		((bool)result) ? swapflap = -1 : swapflap = 1;
 		while (ComparingTwoDate(Date1, Date2) != enComparing::equal)
 		{
 			Days++;
