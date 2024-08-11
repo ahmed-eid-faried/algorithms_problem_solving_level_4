@@ -259,14 +259,19 @@ namespace soln17_2 {
 	}
 
 	int GetDifferance2Date(sDate Date1, sDate Date2, bool IncludingEndDay = false) {
- 		int Days = 0;
-		while (ComparingTwoDate(Date1, Date2) == enComparing::equal)
+		int Days = 0;
+		enComparing result = ComparingTwoDate(Date1, Date2);
+
+		while (ComparingTwoDate(Date1, Date2) != enComparing::equal)
 		{
 			Days++;
-			Date1 = AddingOneDayToDate(Date1);
+			result ?
+				Date2 = AddingOneDayToDate(Date2) :
+				Date1 = AddingOneDayToDate(Date1);
 		}
 		return IncludingEndDay ? ++Days : Days;
 	}
+ 
 }
 
 
@@ -277,12 +282,5 @@ void Differance2DateEx2() {
 	cout << "Date2: " << endl;
 	soln17_2::sDate Date2 = soln17_2::ReadDate();
 
-	soln17_2::enComparing result = soln17_2::ComparingTwoDate(Date1, Date2);
-	cout << soln17_2::ResultOfComparing(result, "Date");
-
-	int Diff = (result != soln17_2::enComparing::smaller) ?
-		soln17_2::Differance2Date(Date1, Date2) :
-		soln17_2::Differance2Date(Date2, Date1);
-
-	cout << "Differance between two Date: " << Diff << endl;
+	cout << "Differance between two Date: " << GetDifferance2Date(Date1, Date2) << endl;
 }
