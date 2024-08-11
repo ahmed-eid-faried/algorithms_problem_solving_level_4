@@ -293,7 +293,13 @@ namespace lib {
 		short NumOfDaysInAMonth = NumOfDaysInMonth(Date.Month, Date.Year);
 		return IncreaseDateByXDays(NumOfDaysInAMonth, Date);
 	}
-	sDate IncreaseDateByXMonths(int x, sDate Date) { return Date; }
+	sDate IncreaseDateByXMonths(int x, sDate Date) { 
+		for (int i = 0; i < x; i++)
+		{
+			Date = IncreaseDateByOneMonth(Date);
+		}
+		return Date;
+	}
 	sDate IncreaseDateByOneYear(sDate Date) { return Date; }
 	sDate IncreaseDateByXYears(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByXYearsFaster(int x, sDate Date) { return Date; }
