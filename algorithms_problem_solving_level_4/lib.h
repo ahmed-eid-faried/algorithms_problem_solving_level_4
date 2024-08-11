@@ -282,8 +282,17 @@ namespace lib {
 		return Date;
 	}
 	sDate IncreaseDateByOneWeek(sDate Date) { return IncreaseDateByXDays(7, Date); }
-	sDate IncreaseDateByXWeeks(int x, sDate Date) { return Date; }
-	sDate IncreaseDateByOneMonth(sDate Date) { return Date; }
+	sDate IncreaseDateByXWeeks(int x, sDate Date) {
+		for (int i = 0; i < x; i++)
+		{
+			Date = IncreaseDateByOneWeek(Date);
+		}
+		return Date;
+	}
+	sDate IncreaseDateByOneMonth(sDate Date) {
+		short NumOfDaysInAMonth = NumOfDaysInMonth(Date.Month, Date.Year);
+		return IncreaseDateByXDays(NumOfDaysInAMonth, Date);
+	}
 	sDate IncreaseDateByXMonths(int x, sDate Date) { return Date; }
 	sDate IncreaseDateByOneYear(sDate Date) { return Date; }
 	sDate IncreaseDateByXYears(int x, sDate Date) { return Date; }

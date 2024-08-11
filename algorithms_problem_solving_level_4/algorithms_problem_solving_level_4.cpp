@@ -59,8 +59,8 @@ int main()
     //CalculateYourAgeInDayEX();
     //Differance2DateEX3();
     //IncreaseDateByXDaysEX();
-    IncreaseDateByOneWeekEX();
-    //IncreaseDateByXWeeksEX();
+    //IncreaseDateByOneWeekEX();
+    IncreaseDateByXWeeksEX();
     //IncreaseDateByOneMonthEX();
     //IncreaseDateByXMonthsEX();
     //IncreaseDateByOneYearEX();
