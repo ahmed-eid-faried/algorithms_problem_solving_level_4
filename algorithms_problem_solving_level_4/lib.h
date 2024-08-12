@@ -74,7 +74,7 @@ namespace lib {
 		Friday,
 		Saturday
 	};
-	short FindDayNameOfWeekByDateGergorianCalender(short Day, short Month, short Year) {
+	short DayOfWeekOrderByGergorianCalender(short Day, short Month, short Year) {
 		int a = (14 - Month) / 12;
 		int y = Year - a;
 		int m = Month + 12 * a - 2;
@@ -110,7 +110,7 @@ namespace lib {
 	void BodyMonthCalender(short Month, short Year) {
 
 		short NumOfDaysInAMonth = NumOfDaysInMonth(Month, Year);
-		short OrderOfFristDay = FindDayNameOfWeekByDateGergorianCalender(1, Month, Year);
+		short OrderOfFristDay = DayOfWeekOrderByGergorianCalender(1, Month, Year);
 		int CurrentDay = 1;
 		for (int i = 0; i < NumOfDaysInAMonth + OrderOfFristDay; i++)
 		{
@@ -442,14 +442,24 @@ namespace lib {
 	}
 	sDate DecreaseDateByOneCentury(sDate Date) { return DecreaseDateByXYearsFaster(100, Date); }
 	sDate DecreaseDateByOneMillennium(sDate Date) { return DecreaseDateByXYearsFaster(1000, Date); }
-	short FindDayNameOfWeekByDateGergorianCalender(sDate Date) {
+	short DayOfWeekOrderByGergorianCalender(sDate Date) {
 		int a = (14 - Date.Month) / 12;
 		int y = Date.Year - a;
 		int m = Date.Month + 12 * a - 2;
 		int d = (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
 		return d;
 	}
-
+	bool IsEndOfWeek(sDate Date) {
+		//6=>saturday and 0=>sunday
+		return DayOfWeekOrderByGergorianCalender(Date) == 6;
+	}
+	bool IsWeekEnd(sDate Date) {
+		//6=>saturday , 5=>friday and 0=>sunday
+		return DayOfWeekOrderByGergorianCalender(Date) == 6 || DayOfWeekOrderByGergorianCalender(Date) == 5;
+	}
+	bool IsBusinessDay(sDate Date) {
+		return !IsWeekEnd(Date);
+	}
 }
 
 
