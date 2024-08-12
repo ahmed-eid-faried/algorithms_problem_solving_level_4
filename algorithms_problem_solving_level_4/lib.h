@@ -453,15 +453,18 @@ namespace lib {
 		//6=>saturday and 0=>sunday
 		return DayOfWeekOrderByGergorianCalender(Date) == 6;
 	}
-
 	bool IsWeekEnd(sDate Date) {
 		//6=>saturday , 5=>friday and 0=>sunday
 		return DayOfWeekOrderByGergorianCalender(Date) == 6 || DayOfWeekOrderByGergorianCalender(Date) == 5;
 	}
-
 	bool IsBusinessDay(sDate Date) {
 		return !IsWeekEnd(Date);
 	}
+
+	short DaysUntilEndOfWeek(sDate Date) {
+		return 6 - DayOfWeekOrderByGergorianCalender(Date);
+	}
+
 }
 
 
