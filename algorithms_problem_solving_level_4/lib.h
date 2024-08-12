@@ -212,29 +212,45 @@ namespace lib {
 		return Date;
 	}
 	enum enComparing {
-		bigger = 1,
-		smaller = 0,
+		After = 1,
+		Before = 0,
 		equal = -1,
 	};
-	bool Date1IsMoreThanDate2(sDate Date1, sDate Date2) {
-		return (Date1.Year != Date2.Year) ? (Date1.Year > Date2.Year) :
-			(Date1.Month != Date2.Month) ? (Date1.Month > Date2.Month) :
-			(Date1.Day != Date2.Day) ? (Date1.Day > Date2.Day) : false;
-	}
+	//bool Date1IsMoreThanDate2(sDate Date1, sDate Date2) {
+	//	return (Date1.Year != Date2.Year) ? (Date1.Year > Date2.Year) :
+	//		(Date1.Month != Date2.Month) ? (Date1.Month > Date2.Month) :
+	//		(Date1.Day != Date2.Day) ? (Date1.Day > Date2.Day) : false;
+	//}
 	bool IsDate1EqualToDate2(sDate Date1, sDate Date2) {
 		return (Date1.Year == Date2.Year) && (Date1.Month == Date2.Month) && (Date1.Day == Date2.Day);
 	}
+	enComparing ComparingTwoDate(sDate Date1, sDate Date2) {
+		return (Date1.Year != Date2.Year) ? (enComparing)(Date1.Year > Date2.Year) :
+			(Date1.Month != Date2.Month) ? (enComparing)(Date1.Month > Date2.Month) :
+			(Date1.Day != Date2.Day) ? (enComparing)(Date1.Day > Date2.Day) : enComparing::equal;
+	}
+
+	bool IsDate1BeforeDate2(sDate Date1, sDate Date2) {
+		return ComparingTwoDate(Date1, Date2) == enComparing::After;
+	}
+	bool IsDate1AfterDate2(sDate Date1, sDate Date2) {
+		return ComparingTwoDate(Date1, Date2) == enComparing::Before;
+	}
+	bool IsDate1EqualDate2(sDate Date1, sDate Date2) {
+		return ComparingTwoDate(Date1, Date2) == enComparing::equal;
+	}
+
 	string ResultOfComparing(enComparing Comparing, string Title) {
 		switch (Comparing)
 		{
-		case enComparing::bigger:
-			return Title + "1 is " + "more than " + Title + "2\n";
-		case enComparing::smaller:
-			return Title + "1 is " + "less than " + Title + "2\n";
+		case enComparing::After:
+			return Title + "1 is " + "After " + Title + "2\n";
+		case enComparing::Before:
+			return Title + "1 is " + "before " + Title + "2\n";
 		case enComparing::equal:
 			return Title + "1 is " + "equal to " + Title + "2\n";
 		default:
-			return Title + "1 is " + "after " + Title + "2\n";
+			return Title + "1 is " + "After " + Title + "2\n";
 		}
 	}
 	bool IsLastDay(sDate Date) {
@@ -258,11 +274,7 @@ namespace lib {
 		}
 		return Date;
 	}
-	enComparing ComparingTwoDate(sDate Date1, sDate Date2) {
-		return (Date1.Year != Date2.Year) ? (enComparing)(Date1.Year > Date2.Year) :
-			(Date1.Month != Date2.Month) ? (enComparing)(Date1.Month > Date2.Month) :
-			(Date1.Day != Date2.Day) ? (enComparing)(Date1.Day > Date2.Day) : enComparing::equal;
-	}
+
 
 	int Differance2Date(sDate Date1, sDate Date2) {
 		int Year = 0;
@@ -508,7 +520,7 @@ namespace lib {
 	}
 	short CalculateVacationDays(sDate FromDate, sDate ToDate) {
 		short VacationDays = 0;
-		if (ComparingTwoDate(FromDate, ToDate) == enComparing::bigger)return 0;
+		if (ComparingTwoDate(FromDate, ToDate) == enComparing::After)return 0;
 		while (ComparingTwoDate(FromDate, ToDate) != enComparing::equal)
 		{
 			if (IsBusinessDay(FromDate)) 				VacationDays++;
