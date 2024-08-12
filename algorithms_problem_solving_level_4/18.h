@@ -282,7 +282,7 @@ namespace soln18 {
 		localtime_s(&localTime, &now);
 		return &localTime;
 	}
-	sDate GetDateNow() {
+	sDate GetSystemDate() {
 		sDate Date;
 		Date.Year = GetNowDate()->tm_year + 1900;
 		Date.Month = GetNowDate()->tm_mon + 1;
@@ -291,7 +291,7 @@ namespace soln18 {
 	}
 
 	int CalculateYourAgeInDay(sDate Date) {
-		sDate DateNow = GetDateNow();
+		sDate DateNow = GetSystemDate();
 		int NumOfDays = GetDifferance2Date(DateNow, Date);
 		return NumOfDays;
 	}

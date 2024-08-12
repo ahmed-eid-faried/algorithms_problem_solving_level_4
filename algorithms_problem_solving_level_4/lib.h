@@ -81,7 +81,10 @@ namespace lib {
 		int d = (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
 		return d;
 	}
-	string GetNameOfDayByOrder(enDaysOfWeek day) {
+	short DayOfWeekOrderByGergorianCalender(sDate Date) {
+		return DayOfWeekOrderByGergorianCalender(Date.Day, Date.Month, Date.Year);
+	}
+	string DayShortName(enDaysOfWeek day) {
 		switch (day)
 		{
 		case enDaysOfWeek::Sunday:
@@ -103,6 +106,9 @@ namespace lib {
 		}
 	}
 	string DaysOfWeek[7] = { "Sun" ,"Mon","Tue","Wed","Thu","Fri","Sat" };
+	string DayShortName(short Num) {
+		return DaysOfWeek[Num];
+	}
 	string MonthsShortName(short Month) {
 		string MonthsOfYear[12] = { "Jan" ,"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec" };
 		return MonthsOfYear[Month - 1];
@@ -167,12 +173,7 @@ namespace lib {
 	}
 
 	short NumOfDaysFromBeginingOfYear(sDate Date) {
-		short NumOfDays = Date.Day;
-		for (short i = 1; i < Date.Month; i++)
-		{
-			NumOfDays += NumOfDaysInMonth(i, Date.Year);
-		}
-		return NumOfDays;
+		return  NumOfDaysFromBeginingOfYear(Date.Day, Date.Month, Date.Year);
 	}
 	sDate GetDateByNumOfDaysInYear(short NumOfDays, short Year) {
 		sDate Date;
@@ -282,6 +283,28 @@ namespace lib {
 		return IncludingEndDay ? (++Days * swapflap) : (Days * swapflap);
 	}
 
+	tm* GetNowDate() {
+		// current date/time based on current system
+		time_t now = time(0);
+		// Create a tm structure to hold the result
+		static tm localTime;
+		// Use localtime_s to safely convert the time
+		localtime_s(&localTime, &now);
+		return &localTime;
+	}
+	sDate GetSystemDate() {
+		sDate Date;
+		Date.Year = GetNowDate()->tm_year + 1900;
+		Date.Month = GetNowDate()->tm_mon + 1;
+		Date.Day = GetNowDate()->tm_mday;
+		return Date;
+	}
+
+	int CalculateYourAgeInDay(sDate Date) {
+		sDate DateNow = GetSystemDate();
+		int NumOfDays = GetDifferance2Date(DateNow, Date);
+		return NumOfDays;
+	}
 
 	sDate IncreaseDateByXDays(int x, sDate Date) {
 		for (int i = 0; i < x; i++)
@@ -451,34 +474,29 @@ namespace lib {
 	}
 	sDate DecreaseDateByOneCentury(sDate Date) { return DecreaseDateByXYearsFaster(100, Date); }
 	sDate DecreaseDateByOneMillennium(sDate Date) { return DecreaseDateByXYearsFaster(1000, Date); }
-	short DayOfWeekOrderByGergorianCalender(sDate Date) {
-		int a = (14 - Date.Month) / 12;
-		int y = Date.Year - a;
-		int m = Date.Month + 12 * a - 2;
-		int d = (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
-		return d;
-	}
+
 	bool IsEndOfWeek(sDate Date) {
 		//6=>saturday and 0=>sunday
 		return DayOfWeekOrderByGergorianCalender(Date) == 6;
 	}
 	bool IsWeekEnd(sDate Date) {
 		//6=>saturday , 5=>friday and 0=>sunday
-		return DayOfWeekOrderByGergorianCalender(Date) == 6 || DayOfWeekOrderByGergorianCalender(Date) == 5;
+		short DayIndex = DayOfWeekOrderByGergorianCalender(Date);
+		return DayIndex == 6 || DayIndex == 5;
 	}
 	bool IsBusinessDay(sDate Date) {
 		return !IsWeekEnd(Date);
 	}
 
-	short DaysUntilEndOfWeek(sDate Date) {
+	short DaysUntilTheEndOfWeek(sDate Date) {
 		return 6 - DayOfWeekOrderByGergorianCalender(Date);
 	}
 
-	short DaysUntilEndOfMonth(sDate Date) {
+	short DaysUntilTheEndOfMonth(sDate Date) {
 		return  NumOfDaysInMonth(Date.Month, Date.Year) - Date.Day;
 	}
 
-	short DaysUntilEndOfYear(sDate Date) {
+	short DaysUntilTheEndOfYear(sDate Date) {
 		return  NumOfDaysInYear(Date.Year) - NumOfDaysFromBeginingOfYear(Date);
 	}
 
