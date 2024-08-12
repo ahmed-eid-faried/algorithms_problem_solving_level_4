@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void CalculateVacationDaysEx() {
+void CalculateVacationReturnDateEX() {
 	cout << "\nVacation Starts: ";
 	lib::sDate DateFrom = lib::ReadDate();
 
