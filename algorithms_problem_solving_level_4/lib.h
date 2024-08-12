@@ -499,7 +499,17 @@ namespace lib {
 	short DaysUntilTheEndOfYear(sDate Date) {
 		return  NumOfDaysInYear(Date.Year) - NumOfDaysFromBeginingOfYear(Date);
 	}
+	short CalculateVacationDays(sDate FromDate, sDate ToDate) {
+		short VacationDays = 0;
+		if (ComparingTwoDate(FromDate, ToDate) == enComparing::bigger)return 0;
+		while (ComparingTwoDate(FromDate, ToDate) != enComparing::equal)
+		{
+			if (IsBusinessDay(FromDate)) 				VacationDays++;
+			FromDate = IncreaseDateByOneDay(FromDate);
 
+		}
+		return VacationDays;
+	}
 }
 
 
