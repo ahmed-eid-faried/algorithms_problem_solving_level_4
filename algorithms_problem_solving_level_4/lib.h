@@ -212,32 +212,30 @@ namespace lib {
 		return Date;
 	}
 	enum enComparing {
-		After = 1,
-		Before = 0,
-		equal = -1,
+		Before = -1,
+		Equal = 0,
+		After = 1
 	};
-	//bool Date1IsMoreThanDate2(sDate Date1, sDate Date2) {
-	//	return (Date1.Year != Date2.Year) ? (Date1.Year > Date2.Year) :
-	//		(Date1.Month != Date2.Month) ? (Date1.Month > Date2.Month) :
-	//		(Date1.Day != Date2.Day) ? (Date1.Day > Date2.Day) : false;
-	//}
+	enComparing ReturnComparingDateValue(bool state) {
+		return state ? enComparing::After : enComparing::Before;
+	}
 	bool IsDate1EqualToDate2(sDate Date1, sDate Date2) {
 		return (Date1.Year == Date2.Year) && (Date1.Month == Date2.Month) && (Date1.Day == Date2.Day);
 	}
 	enComparing ComparingTwoDate(sDate Date1, sDate Date2) {
-		return (Date1.Year != Date2.Year) ? (enComparing)(Date1.Year > Date2.Year) :
-			(Date1.Month != Date2.Month) ? (enComparing)(Date1.Month > Date2.Month) :
-			(Date1.Day != Date2.Day) ? (enComparing)(Date1.Day > Date2.Day) : enComparing::equal;
+		return (Date1.Year != Date2.Year) ? ReturnComparingDateValue(Date1.Year > Date2.Year) :
+			(Date1.Month != Date2.Month) ? ReturnComparingDateValue(Date1.Month > Date2.Month) :
+			(Date1.Day != Date2.Day) ? ReturnComparingDateValue(Date1.Day > Date2.Day) : enComparing::Equal;
 	}
 
 	bool IsDate1BeforeDate2(sDate Date1, sDate Date2) {
-		return ComparingTwoDate(Date1, Date2) == enComparing::After;
-	}
-	bool IsDate1AfterDate2(sDate Date1, sDate Date2) {
 		return ComparingTwoDate(Date1, Date2) == enComparing::Before;
 	}
+	bool IsDate1AfterDate2(sDate Date1, sDate Date2) {
+		return ComparingTwoDate(Date1, Date2) == enComparing::After;
+	}
 	bool IsDate1EqualDate2(sDate Date1, sDate Date2) {
-		return ComparingTwoDate(Date1, Date2) == enComparing::equal;
+		return ComparingTwoDate(Date1, Date2) == enComparing::Equal;
 	}
 
 	string ResultOfComparing(enComparing Comparing, string Title) {
@@ -247,8 +245,8 @@ namespace lib {
 			return Title + "1 is " + "After " + Title + "2\n";
 		case enComparing::Before:
 			return Title + "1 is " + "before " + Title + "2\n";
-		case enComparing::equal:
-			return Title + "1 is " + "equal to " + Title + "2\n";
+		case enComparing::Equal:
+			return Title + "1 is " + "Equal to " + Title + "2\n";
 		default:
 			return Title + "1 is " + "After " + Title + "2\n";
 		}
@@ -292,7 +290,7 @@ namespace lib {
 		enComparing result = ComparingTwoDate(Date1, Date2);
 		int swapflap = 1;
 		((bool)result) ? swapflap = -1 : swapflap = 1;
-		while (ComparingTwoDate(Date1, Date2) != enComparing::equal)
+		while (ComparingTwoDate(Date1, Date2) != enComparing::Equal)
 		{
 			Days++;
 			result ?
@@ -521,7 +519,7 @@ namespace lib {
 	short CalculateVacationDays(sDate FromDate, sDate ToDate) {
 		short VacationDays = 0;
 		if (ComparingTwoDate(FromDate, ToDate) == enComparing::After)return 0;
-		while (ComparingTwoDate(FromDate, ToDate) != enComparing::equal)
+		while (ComparingTwoDate(FromDate, ToDate) != enComparing::Equal)
 		{
 			if (IsBusinessDay(FromDate)) 				VacationDays++;
 			FromDate = IncreaseDateByOneDay(FromDate);

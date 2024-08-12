@@ -165,6 +165,7 @@
     <ClInclude Include="54.h" />
     <ClInclude Include="55.h" />
     <ClInclude Include="56.h" />
+    <ClInclude Include="57.h" />
     <ClInclude Include="6.h" />
     <ClInclude Include="7.h" />
     <ClInclude Include="8.h" />
