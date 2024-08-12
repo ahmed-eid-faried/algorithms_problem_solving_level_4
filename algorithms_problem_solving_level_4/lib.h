@@ -31,6 +31,13 @@ namespace lib {
 
 
 	}
+	short ReadNumber(string Message, bool shortNum)
+	{
+		short Num;
+		cout << Message;
+		cin >> Num;
+		return Num;
+	}
 	sDate ReadDate() {
 		sDate Date;
 		Date.Day = soln19::ReadNumberInRange(1, 31, "Please Enter a Day? ");
@@ -509,6 +516,19 @@ namespace lib {
 
 		}
 		return VacationDays;
+	}
+
+	sDate CalculateVacationReturnDate(sDate DateFrom, short VacationDays) {
+		int counter = 0;
+		while (VacationDays != counter)
+		{
+			DateFrom = IncreaseDateByOneDay(DateFrom);
+			if (IsBusinessDay(DateFrom)) {
+				counter++;
+			}
+
+		}
+		return DateFrom;
 	}
 }
 
