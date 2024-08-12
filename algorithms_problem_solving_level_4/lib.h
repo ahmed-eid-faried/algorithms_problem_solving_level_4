@@ -442,8 +442,13 @@ namespace lib {
 	}
 	sDate DecreaseDateByOneCentury(sDate Date) { return DecreaseDateByXYearsFaster(100, Date); }
 	sDate DecreaseDateByOneMillennium(sDate Date) { return DecreaseDateByXYearsFaster(1000, Date); }
-
-
+	short FindDayNameOfWeekByDateGergorianCalender(sDate Date) {
+		int a = (14 - Date.Month) / 12;
+		int y = Date.Year - a;
+		int m = Date.Month + 12 * a - 2;
+		int d = (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+		return d;
+	}
 
 }
 
