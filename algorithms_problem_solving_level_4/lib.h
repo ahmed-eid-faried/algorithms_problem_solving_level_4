@@ -165,6 +165,15 @@ namespace lib {
 		}
 		return NumOfDays;
 	}
+
+	short NumOfDaysFromBeginingOfYear(sDate Date) {
+		short NumOfDays = Date.Day;
+		for (short i = 1; i < Date.Month; i++)
+		{
+			NumOfDays += NumOfDaysInMonth(i, Date.Year);
+		}
+		return NumOfDays;
+	}
 	sDate GetDateByNumOfDaysInYear(short NumOfDays, short Year) {
 		sDate Date;
 		for (short i = 1; i <= 12; i++)
@@ -467,6 +476,10 @@ namespace lib {
 
 	short DaysUntilEndOfMonth(sDate Date) {
 		return  NumOfDaysInMonth(Date.Month, Date.Year) - Date.Day;
+	}
+
+	short DaysUntilEndOfYear(sDate Date) {
+		return  NumOfDaysInYear(Date.Year) - NumOfDaysFromBeginingOfYear(Date);
 	}
 
 }
