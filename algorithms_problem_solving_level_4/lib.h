@@ -465,6 +465,10 @@ namespace lib {
 		return 6 - DayOfWeekOrderByGergorianCalender(Date);
 	}
 
+	short DaysUntilEndOfMonth(sDate Date) {
+		return  NumOfDaysInMonth(Date.Month, Date.Year) - Date.Day;
+	}
+
 }
 
 
