@@ -274,7 +274,7 @@ namespace lib {
 	}
 
 
-	int Differance2Date(sDate Date1, sDate Date2) {
+	int Differance2Date(sDate Date1, sDate Date2, bool IncludingEndDay = false) {
 		int Year = 0;
 		for (int i = Date2.Year; i < Date1.Year; i++) { Year += NumOfDaysInYear(i); }
 		int NumOfDays1 = NumOfDaysFromBeginingOfYear(Date1.Day, Date1.Month, Date1.Year);
@@ -282,22 +282,32 @@ namespace lib {
 		int del = Year + NumOfDays1 - NumOfDays2;
 
 
-		return del;
+		return IncludingEndDay ? ++del : del;
 	}
+
+	//int GetDifferance2Date(sDate Date1, sDate Date2, bool IncludingEndDay = false) {
+	//	int Days = 0;
+	//	enComparing result = ComparingTwoDate(Date1, Date2);
+	//	int swapflap = 1;
+	//	((bool)result) ? swapflap = -1 : swapflap = 1;
+	//	while (ComparingTwoDate(Date1, Date2) != enComparing::Equal)
+	//	{
+	//		Days++;
+	//		result ?
+	//			Date2 = IncreaseDateByOneDay(Date2) :
+	//			Date1 = IncreaseDateByOneDay(Date1);
+	//	}
+	//	return IncludingEndDay ? (++Days * swapflap) : (Days * swapflap);
+	//}
 
 	int GetDifferance2Date(sDate Date1, sDate Date2, bool IncludingEndDay = false) {
 		int Days = 0;
-		enComparing result = ComparingTwoDate(Date1, Date2);
-		int swapflap = 1;
-		((bool)result) ? swapflap = -1 : swapflap = 1;
-		while (ComparingTwoDate(Date1, Date2) != enComparing::Equal)
+		while (IsDate1BeforeDate2(Date1, Date2))
 		{
 			Days++;
-			result ?
-				Date2 = IncreaseDateByOneDay(Date2) :
-				Date1 = IncreaseDateByOneDay(Date1);
+			Date1 = IncreaseDateByOneDay(Date1);
 		}
-		return IncludingEndDay ? (++Days * swapflap) : (Days * swapflap);
+		return IncludingEndDay ? ++Days : Days;
 	}
 	struct stPeriod {
 		sDate From;
@@ -316,25 +326,31 @@ namespace lib {
 		enComparing ComparingP1ToWithP2To = ComparingTwoDate(P1.To, P2.To);
 		enComparing ComparingP1FromWithP2To = ComparingTwoDate(P1.From, P2.To);
 		enComparing ComparingP1ToWithP2From = ComparingTwoDate(P1.To, P2.From);
-		if (ComparingP1ToWithP2From == enComparing::Before || ComparingP1FromWithP2To == enComparing::After) { return true; }
-		else { return false; }
-			if (ComparingP1FromWithP2From == enComparing::Before
-				&& ComparingP1ToWithP2To == enComparing::Before
-				&& ComparingP1FromWithP2To == enComparing::Before
-				&& ComparingP1ToWithP2From == enComparing::Before) {
-				return false;
-			}
-			else if (
-				ComparingP1FromWithP2From == enComparing::After
-				&& ComparingP1ToWithP2To == enComparing::After
-				&& ComparingP1FromWithP2To == enComparing::After
-				&& ComparingP1ToWithP2From == enComparing::After) {
-				return false;
-			}
-			else {
-				return true;
-			}
+		//short
+	/*	if (ComparingP1ToWithP2From == enComparing::Before || ComparingP1FromWithP2To == enComparing::After) { return true; }
+		else { return false; }*/
+		if (ComparingP1FromWithP2From == enComparing::Before
+			&& ComparingP1ToWithP2To == enComparing::Before
+			&& ComparingP1FromWithP2To == enComparing::Before
+			&& ComparingP1ToWithP2From == enComparing::Before) {
+			return false;
+		}
+		else if (
+			ComparingP1FromWithP2From == enComparing::After
+			&& ComparingP1ToWithP2To == enComparing::After
+			&& ComparingP1FromWithP2To == enComparing::After
+			&& ComparingP1ToWithP2From == enComparing::After) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
+
+	int PeriodLengthInDays(stPeriod P1, bool IncludingEndDate = false) {
+		return GetDifferance2Date(P1.From, P1.To, IncludingEndDate);
+	}
+
 	tm* GetNowDate() {
 		// current date/time based on current system
 		time_t now = time(0);
