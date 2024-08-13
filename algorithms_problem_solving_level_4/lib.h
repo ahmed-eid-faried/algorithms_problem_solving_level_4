@@ -315,9 +315,9 @@ namespace lib {
 	};
 	stPeriod ReadPeriod() {
 		stPeriod P;
-		cout << "\n Start Date: ";
+		cout << "\n Start Date: "<<endl;
 		P.From = ReadDate();
-		cout << "\n End Date: ";
+		cout << "\n End Date: " << endl;
 		P.To = ReadDate();
 		return P;
 	};
@@ -350,7 +350,7 @@ namespace lib {
 	int PeriodLengthInDays(stPeriod P1, bool IncludingEndDate = false) {
 		return GetDifferance2Date(P1.From, P1.To, IncludingEndDate);
 	}
-	bool IsDateInPeriod(stPeriod P, sDate Date) {
+	bool IsDateInPeriod(sDate Date, stPeriod P) {
 		return ((IsDate1BeforeDate2(P.From, Date) || IsDate1EqualDate2(P.From, Date))
 			&& (IsDate1EqualDate2(P.To, Date) || IsDate1AfterDate2(P.To, Date)));
 	}
