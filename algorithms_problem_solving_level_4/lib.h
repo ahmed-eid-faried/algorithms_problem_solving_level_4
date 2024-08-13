@@ -92,6 +92,12 @@ namespace lib {
 		getline(cin >> ws, str);
 		return str;
 	}
+	string FormateDate(sDate Date, string Formate) {
+		Formate.replace(Formate.find("yyyy"), 4, to_string(Date.Year));
+		Formate.replace(Formate.find("mm"), 2, to_string(Date.Month));
+		Formate.replace(Formate.find("dd"), 2, to_string(Date.Day));
+		return Formate;
+	}
 	bool isLeapYear(short Year) {
 		return (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0);
 	}
