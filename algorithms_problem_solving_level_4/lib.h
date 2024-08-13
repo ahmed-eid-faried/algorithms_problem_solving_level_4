@@ -299,7 +299,42 @@ namespace lib {
 		}
 		return IncludingEndDay ? (++Days * swapflap) : (Days * swapflap);
 	}
-
+	struct stPeriod {
+		sDate From;
+		sDate To;
+	};
+	stPeriod ReadPeriod() {
+ 		stPeriod P;
+		cout << "\nFrom: ";
+		P.From = ReadDate();
+		cout << "\nTo: ";
+		P.To = ReadDate();
+		return P;
+	};
+	bool IsOverlapPeriods(stPeriod P1, stPeriod P2) {
+		//int P1Counter = Differance2Date(P1From, P1To);
+		//int P2Counter = Differance2Date(P2From, P2To);
+		enComparing ComparingP1FromWithP2From = ComparingTwoDate(P1.From, P2.From);
+		enComparing ComparingP1ToWithP2To = ComparingTwoDate(P1.To, P2.To);
+		enComparing ComparingP1FromWithP2To = ComparingTwoDate(P1.From, P2.To);
+		enComparing ComparingP1ToWithP2From = ComparingTwoDate(P1.To, P2.From);
+		if (ComparingP1FromWithP2From == enComparing::Before
+			&& ComparingP1ToWithP2To == enComparing::Before
+			&& ComparingP1FromWithP2To == enComparing::Before
+			&& ComparingP1ToWithP2From == enComparing::Before) {
+			return false;
+		}
+		else if (
+			ComparingP1FromWithP2From == enComparing::After
+			&& ComparingP1ToWithP2To == enComparing::After
+			&& ComparingP1FromWithP2To == enComparing::After
+			&& ComparingP1ToWithP2From == enComparing::After) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 	tm* GetNowDate() {
 		// current date/time based on current system
 		time_t now = time(0);
