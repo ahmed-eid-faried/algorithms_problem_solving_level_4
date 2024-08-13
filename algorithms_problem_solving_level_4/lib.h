@@ -350,7 +350,10 @@ namespace lib {
 	int PeriodLengthInDays(stPeriod P1, bool IncludingEndDate = false) {
 		return GetDifferance2Date(P1.From, P1.To, IncludingEndDate);
 	}
-
+	bool IsDateInPeriod(stPeriod P, sDate Date) {
+		return ((IsDate1BeforeDate2(P.From, Date) || IsDate1EqualDate2(P.From, Date))
+			&& (IsDate1EqualDate2(P.To, Date) || IsDate1AfterDate2(P.To, Date)));
+	}
 	tm* GetNowDate() {
 		// current date/time based on current system
 		time_t now = time(0);
