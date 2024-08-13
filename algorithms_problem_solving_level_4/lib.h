@@ -315,12 +315,13 @@ namespace lib {
 	};
 	stPeriod ReadPeriod() {
 		stPeriod P;
-		cout << "\n Start Date: "<<endl;
+		cout << "\n Start Date: " << endl;
 		P.From = ReadDate();
 		cout << "\n End Date: " << endl;
 		P.To = ReadDate();
 		return P;
 	};
+
 	bool IsOverlapPeriods(stPeriod P1, stPeriod P2) {
 		enComparing ComparingP1FromWithP2From = ComparingTwoDate(P1.From, P2.From);
 		enComparing ComparingP1ToWithP2To = ComparingTwoDate(P1.To, P2.To);
@@ -353,6 +354,19 @@ namespace lib {
 	bool IsDateInPeriod(sDate Date, stPeriod P) {
 		return ((IsDate1BeforeDate2(P.From, Date) || IsDate1EqualDate2(P.From, Date))
 			&& (IsDate1EqualDate2(P.To, Date) || IsDate1AfterDate2(P.To, Date)));
+	}
+
+	int CountOverlapDays(stPeriod P1, stPeriod P2) {
+		int OverlapDays = 0;
+		sDate StartDateLoop = IsDate1AfterDate2(P1.From, P2.From) ? P1.From : P2.From;
+		sDate EndDateLoop = IsDate1BeforeDate2(P1.To, P2.To) ? P1.To : P2.To;
+		if (IsOverlapPeriods(P1, P2)) {
+			while (!IsDate1AfterDate2(StartDateLoop, EndDateLoop)) {
+				if (IsDateInPeriod(StartDateLoop, P2)) { OverlapDays++; }
+				StartDateLoop = IncreaseDateByOneDay(StartDateLoop);
+			}
+		}
+		return OverlapDays;
 	}
 	tm* GetNowDate() {
 		// current date/time based on current system
