@@ -45,11 +45,52 @@ namespace lib {
 		return true;
 	}
 	sDate ReadDate() {
+		bool IsFinshed = false;
 		sDate Date;
-		Date.Day = soln19::ReadNumberInRange(1, 31, "Please Enter a Day? ");
-		Date.Month = soln19::ReadNumberInRange(1, 12, "Please Enter a Month? ");
-		Date.Year = soln19::ReadNumber("Please Enter a Year? ");
+		while (!IsFinshed)
+		{
+			Date.Day = soln19::ReadNumber("Please Enter a Day? ");
+			Date.Month = soln19::ReadNumber("Please Enter a Month? ");
+			Date.Year = soln19::ReadNumber("Please Enter a Year? ");
+			if (lib::IsValidDate(Date))
+				IsFinshed = true;
+			else
+				cout << "\nNo, Date is a NOT valide date\n";
+		}
+
 		return Date;
+	}
+	vector<string> Split(string S1, string delim) {
+		int position = 0;
+		string subWord = "";
+		int counter = 0;
+		vector<string> listWords;
+		while ((position = S1.find(delim)) != string::npos)
+		{
+			subWord = S1.substr(0, position);
+			if (subWord != "") listWords.push_back(subWord);
+			S1.erase(0, position + delim.length());
+		}
+		//last word in string
+		if (S1 != "")listWords.push_back(S1);
+		return listWords;
+	}
+	sDate StringToDate(string str, string delim = "/") {
+		sDate Date;
+		vector<string> list = Split(str, delim);
+		Date.Day = (short)stoi(list[0]);
+		Date.Month = (short)stoi(list[1]);
+		Date.Year = (short)stoi(list[2]);
+		return Date;
+	}
+	string DateToString(sDate Date, string delim = "/") {
+		return to_string(Date.Day) + delim + to_string(Date.Month) + delim + to_string(Date.Year);
+	}
+	string ReadStringDate() {
+		string str;
+		cout << "\nPlease Enter Date dd/mm/yyyy? \n" << endl;
+		getline(cin >> ws, str);
+		return str;
 	}
 	bool isLeapYear(short Year) {
 		return (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0);
