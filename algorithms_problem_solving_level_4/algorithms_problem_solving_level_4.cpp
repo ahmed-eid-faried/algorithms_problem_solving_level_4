@@ -45,6 +45,7 @@
 #include "61.h"
 #include "62.h"
 #include "63_and_64.h"
+#include "65.h"
 using namespace soln11;
 
 int main()
@@ -94,5 +95,6 @@ int main()
 	//IsDateInPeriodEx();
 	//CountOverlapDaysEx();
 	//IsValidDateEx();
-	StringToDateAndDateToStringEx();
+	//StringToDateAndDateToStringEx();
+	FormateDateEx();
 }

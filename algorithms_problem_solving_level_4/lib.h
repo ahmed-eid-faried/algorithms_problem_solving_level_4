@@ -92,10 +92,20 @@ namespace lib {
 		getline(cin >> ws, str);
 		return str;
 	}
-	string FormateDate(sDate Date, string Formate) {
-		Formate.replace(Formate.find("yyyy"), 4, to_string(Date.Year));
-		Formate.replace(Formate.find("mm"), 2, to_string(Date.Month));
-		Formate.replace(Formate.find("dd"), 2, to_string(Date.Day));
+	static string ReplaceWord(string S1, string  StringToReplace, string ReplaceTo) {
+		int position = S1.find(StringToReplace);
+		int counter = 0;
+		while (position != string::npos)
+		{
+			S1 = S1.replace(position, StringToReplace.length(), ReplaceTo);
+			position = S1.find(StringToReplace);
+		}
+		return S1;
+	}
+	string FormateDate(sDate Date, string Formate = "dd/mm/yyyy") {
+		Formate = ReplaceWord(Formate, "yyyy", to_string(Date.Year));
+		Formate = ReplaceWord(Formate, "mm", to_string(Date.Month));
+		Formate = ReplaceWord(Formate, "dd", to_string(Date.Day));
 		return Formate;
 	}
 	bool isLeapYear(short Year) {
