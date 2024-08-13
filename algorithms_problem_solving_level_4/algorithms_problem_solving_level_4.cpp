@@ -43,6 +43,7 @@
 #include "59.h"
 #include "60.h"
 #include "61.h"
+#include "62.h"
 using namespace soln11;
 
 int main()
@@ -90,5 +91,6 @@ int main()
 	//IsOverlapPeriodsEX();
 	//CalCulatePeriodLength();
 	//IsDateInPeriodEx();
-	CountOverlapDaysEx();
+	//CountOverlapDaysEx();
+	IsValidDateEx();
 }

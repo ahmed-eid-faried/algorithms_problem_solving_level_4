@@ -38,6 +38,12 @@ namespace lib {
 		cin >> Num;
 		return Num;
 	}
+	short NumOfDaysInMonth(short Month, short Year);
+	bool IsValidDate(sDate Date) {
+		if (NumOfDaysInMonth(Date.Month, Date.Year) < Date.Day || Date.Day < 1)return false;
+		if (Date.Month > 12 || Date.Month < 1)return false;
+		return true;
+	}
 	sDate ReadDate() {
 		sDate Date;
 		Date.Day = soln19::ReadNumberInRange(1, 31, "Please Enter a Day? ");
